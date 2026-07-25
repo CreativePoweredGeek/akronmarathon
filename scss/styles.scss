@@ -1,0 +1,15 @@
+@charset "UTF-8";
+// Custom variables
+@import "_components/_variables";
+
+@import "_bootstrap_scss/bootstrap-grid";
+@import "_bootstrap_scss/bootstrap-reboot";
+@import "_bootstrap_scss/bootstrap-utilities";
+@import "_bootstrap_scss/bootstrap";
+
+@import "_components/_media-queries";
+$enable-negative-margins: true;
+
+.max_page_width {
+    max-width:1800px;
+}

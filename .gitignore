@@ -1,1 +1,5 @@
 .DS_Store
+.env.php
+.htaccess
+/system/user/cache/*
+!system/user/cache/index.html
