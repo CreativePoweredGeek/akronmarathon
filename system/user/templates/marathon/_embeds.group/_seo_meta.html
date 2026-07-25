@@ -1,0 +1,19 @@
+{exp:seo_lite entry_id="{embed:entry_id}"
+  default_title="Lighting the way for people, places and progress."
+  default_keywords="economic development, destination marketing, digital marketing"
+}
+<title>{og_title}</title>
+<meta name="description" content="{meta_description}" />
+<meta name="robots" content="{if robots_directive}{robots_directive}{if:else}INDEX, FOLLOW{/if}" />
+<link rel="canonical" href="{current_url}"/>
+
+<meta property="og:description" content="{og_description}" />
+<meta property="og:type" content="{if og_type}{og_type}{if:else}website{/if}" />
+<meta property="og:url" content="{current_url}" />
+<meta property="og:image" content="{og_image}" />
+
+<meta property="twitter:title" content="{twitter_title}" />
+<meta property="twitter:card" content="{if twitter_type}{twitter_type}{if:else}summary{/if}" />
+<meta property="twitter:description" content="{twitter_description}" />
+<meta property="twitter:image" content="{twitter_image}" />
+{/exp:seo_lite}   

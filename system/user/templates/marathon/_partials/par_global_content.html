@@ -1,0 +1,44 @@
+{layout:set name="positioning"}{positioning_line}{/layout:set}
+{layout:set name="copyright"}{copyright}{/layout:set}
+{layout:set name="social"}
+    {social_media}
+        <li class="nav-item"><a href="{social_media:address}" class="nav-link link-secondary" 
+            alt="{social_media:network}" title="{social_media:network}">
+            {social_media:icon}
+        </a></li>
+    {/social_media}
+{/layout:set}
+
+{layout:set name="footer_logo"}{footer_logo}{/layout:set} 
+{layout:set name="footer_logo_alt"}{footer_logo}{description}{/footer_logo} {/layout:set} 
+{layout:set name="footer_logo_title"}{footer_logo}{title}{/footer_logo}{/layout:set} 
+{layout:set name="address"}{address}{/layout:set} 
+{layout:set name="contact_email"}{contact_email}{/layout:set} 
+
+{layout:set name="footer_menu_1"}
+{footer_menu_1}
+        <a href="{footer_menu_1:page}" class="link-secondary"> {footer_menu_1:link_text}</a> | 
+{/footer_menu_1}
+{/layout:set}
+
+{layout:set name="footer_menu_2"}
+{footer_menu_2}
+ <a href="{footer_menu_2:page}" class="link-secondary"> {footer_menu_2:link_text}</a> | 
+{/footer_menu_2}
+{/layout:set}
+
+{layout:set name="porchlyt_bio"}{porchlyt_bio}{/layout:set}
+{layout:set name="contact_email"}{contact_email}{/layout:set}
+{mini_contact_form}
+{layout:set name="mini_contact_top"}{mini_contact_form:top_copy}{/layout:set}
+{layout:set name="mini_contact_bottom"}{mini_contact_form:disclaimer_copy}{/layout:set}
+{/mini_contact_form}
+
+
+{layout:set name="affiliations"}
+    {affiliations}
+        <div class="col-6 col-md-3 col-xl-2">
+            <img src="{affiliations:file:resize:webp width='200px'}" class="img-fluid" alt="{affiliations:alt_text}" title="{affiliations:title}" loading="lazy">
+        </div>
+    {/affiliations}
+{/layout:set}

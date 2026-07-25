@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+{exp:structure:nav_advanced show_depth="4" override_hidden_state="n"}
+            {if root:has_children}
+            <url>
+                <loc>https://sandbox.loc{root:page_url}</loc>
+              </url>   
+            {root:children}
+                <url>
+                    <loc>https://sandbox.loc{child:page_url}</loc>
+                </url>  
+                
+            {/root:children}
+            
+            {if:else}
+                {if root:url_title =='home'}
+                  <url>
+                      <loc>{site_url}</loc>
+                  </url>
+                      {if:elseif root:url_title =='insights'}
+                  <url>
+                    <loc>sandbox.loc{root:page_url}</loc>
+                  </url>
+                    {embed="_embeds/_sitemap_listings_blog" channel="blog"}
+                  {if:elseif root:url_title =='our-work'}
+                  <url>
+                    <loc>sandbox.loc{root:page_url}</loc>
+                  </url>
+                    {embed="_embeds/_sitemap_listings_portfolio" channel="our-work"}
+                  {if:else}
+                  <url>
+                    <loc>sandbox.loc{root:page_url}</loc>
+                  </url>
+              {/if}
+            {/if}
+            {/exp:structure:nav_advanced}
+            <url>
+<loc>{site_url}privacy-policy/</loc>
+</url>
+<url>
+<loc>{site_url}search/</loc>
+</url>
+<url>
+<loc>{site_url}search/search-results/</loc>
+</url>
+</urlset>

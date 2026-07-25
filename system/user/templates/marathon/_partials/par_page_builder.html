@@ -1,0 +1,209 @@
+{page_builder}
+{if page_builder:first && !{page_builder:first name="section_divider"}}
+    <section class="container-xxl bg-white-translucent {if segment_1 !=''}primary-content{if:else}primary-content-home{/if}">
+{/if}
+
+{page_builder:section_divider}
+    {if page_builder:count != '1'}   </section>{/if}  
+    {content}
+        <section class="container-xxl scroll-margin" {if '{content:id}' != ''}id="{content:id}"{/if}>
+    {/content}
+{/page_builder:section_divider}
+
+{page_builder:text_only}
+        <div class="row g-5">
+            {content}
+                <div class="{if content:field_total_rows == 1}col-lg-12 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}" >
+                   {content:text}
+                </div> 
+            {/content}
+        </div>  
+{/page_builder:text_only}
+
+{page_builder:text_image}
+    {content}   
+        <div class="row align-items-start">
+           
+            <div class="col-12 col-lg-6 h-100 p-0 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
+                <picture>
+                    <source media="(max-width:576px)" srcset="{content:image:resize width='576'}"> <!--XS-->
+                    <source media="(max-width:768px)" srcset="{content:image:resize:webp width='690'}"> <!--SM-->
+                    <source media="(max-width:992px)" srcset="{content:image:resize:webp width='990'}"> <!--M-->
+                    <source media="(max-width:1200px)" srcset="{content:image:resize:webp width='885'}"> <!--LG-->
+                    {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
+                    <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="img-fluid">
+                </picture>
+                
+            </div>
+            <div class="col-12 col-lg-6 mt-3 mt-lg-0 {if content:orientation == 'image_right'}p-3 pe-lg-5{if:else}ps-3 ps-lg-5{/if}">
+                {content:text}
+            </div>
+            
+        </div>
+    {/content}
+{/page_builder:text_image}
+
+{page_builder:embed_code}
+        <div class="row">
+        {content}
+        <div class="col-12{if content:additional_css}{content:additional_css}{/if}">
+            {content:code}
+        </div>    
+        {/content}
+        </div>
+{/page_builder:embed_code}
+{page_builder:statistics}   
+        <div class="row align-items-end">
+        {content}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3 mx-auto">
+                <div class="card border-0 h-100">
+                    <div class="card-body text-center p-2">
+                        <div class="lh-sm">{content:title}</div> <div class="fs-1 mt-2 countUp" data-target='{content:statistic_value}'>0</div>
+                    </div>
+                </div>
+            </div>
+        {/content}
+        </div>
+{/page_builder:statistics}
+
+{page_builder:testimonial_block}
+    <div class="row align-items-center">
+        {content}
+            {content:testimonial}
+                <div class="col-12 col-lg-6" data-aos="fade-left"> 
+                    <img src="{content:testimonial:photo}" class="img-fluid"  loading="lazy" alt="" title="">
+                </div>
+                <div class="col-12 col-lg-6 p-5" data-aos="fade-right"> 
+                    <div class="fs-3 mb-3 quote">"{content:testimonial:quote}"</div>
+                    <div class="text-end float-end">~ {content:testimonial:title}<br>
+                    <span class="small">{content:testimonial:credit}</span></div>
+                </div>
+            {/content:testimonial}
+        {/content}
+        </div>
+{/page_builder:testimonial_block}
+
+{page_builder:profiles}
+    <div class="row g-5 align-items-center">
+        {content}
+        <div class="col-10 col-md-6 col-xl-4 mx-auto">
+            <div class="card border-0 card-body text-center bg-transparent">
+                {if content:headshot != ""} 
+                    <img src="{content:headshot}" 
+                    class="mx-auto rounded-circle border border-4 border-dark" width="150px" height="150px" alt="{content:title} | {content:position}" title="{content:title} | {content:position}"><br>
+                {if:else}  
+                    <img src="{site_url}assets/images/default-headshot-img.jpg" class="mx-auto rounded-circle border-4 border-dark" width="150px" height="150px" alt="{content:title} | {content:position}" title="{content:title} | {content:position}"><br>
+                {/if}
+                
+                <h4 class="text-dark">{content:title}<br>
+                <div class="small" style="font-size:16px">{content:position}</div></h4>
+                <p class="">
+                    {if content:linkedin_profile}<a href="{content:linkedin_profile}" target="_blank" class="fs-4 mx-1">{pv_linkedin}</a>{/if}
+                    {if content:email_address}<a href="mailto:{content:email_address}" class="fs-4 mx-1">{pv_email}</a>{/if}
+                </p>
+            </div>
+        </div>
+        {/content}
+    </div>
+ {/page_builder:profiles}
+
+ {page_builder:space}
+    {content}
+        <div class="w-100 mb-{item:value}"></div>
+    {/content}
+{/page_builder:space}
+
+{page_builder:truth_bomb}
+    <div class="w-100 truth text-white text-center fs-3">
+        <div class="row">
+                <div class="col-md-8 col-lg-6 mx-auto">
+                    {content}
+                </div> 
+        </div>
+    </div>
+    <div class="w-100 text-center position-relative" style="margin-top:-65px;z-index:99999"><img src="{site_url}assets/images/porchlyt-icon-200.png" width="130px" height="130px" alt="Porchlyt Icon"></div>
+{/page_builder:truth_bomb}
+
+{page_builder:people_bios} 
+<div class="row g-5">
+    {content}
+      
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <picture>
+                    {!-- disable frontedit --}<source media="(max-width:576px)" srcset="{content:photo:resize width='430px'}"> <!--SM-->{!-- //disable frontedit --}
+                    {!-- disable frontedit --}<img src="{content:photo:resize width='270px'}" alt="{content:photo}{description}{/content:photo}" title="{content:photo}{title}{/content:photo}" loading="lazy" class="img-fluid mb-3 rounded-4">{!-- //disable frontedit --}
+                </picture>  
+                {frontedit_link entry_id="{content:entry_id}" field_name="photo"}              
+            
+                <h3>{content:title}</h3>
+                 <div class="fs-5 lh-1 mb-3 mt-0">{content:position}{frontedit_link entry_id="{content:entry_id}" field_name="content:position"}</div>
+                {content:lots_bio:limit characters="200"}
+                <p class="mt-3"><a href="{site_url}about/{content:url_title}/" class="btn btn-primary">{content:title}</a></p>
+            </div>
+       
+    {/content}
+    </div>
+{/page_builder:people_bios}
+
+{page_builder:images}
+    <div class="row">
+        {content}
+        <div class="{if content:field_total_rows == 1}col-lg-12 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}">
+            <picture>
+                    <source media="(max-width:576px)" srcset="{content:file:resize width='576'}"> <!--XS-->
+                    <source media="(max-width:768px)" srcset="{content:file:resize width='690'}"> <!--SM-->
+                    <source media="(max-width:992px)" srcset="{content:file:resize width='990'}"> <!--M-->
+                    <source media="(max-width:1200px)" srcset="{content:file:resize width='885'}"> <!--LG-->
+                    {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
+                    <img src="{content:file width='885'}" alt="{content:file}{description}{/content:file}" title="{content:file}{title}{/content:file}" loading="lazy" class="img-fluid">
+                </picture>
+            {if content:caption}<caption class="text-center">{content:caption}</caption>{/if}
+            </div>
+        {/content}
+    </div>
+{/page_builder:images}
+
+{page_builder:videos}
+    <div class="row">
+        {content}
+        <div
+            class="{if content:field_total_rows == 1}col-lg-12 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}">
+            <div class="ratio ratio-16x9 rounded-2">
+                <iframe src="{content:video_url}" title="YouTube video" loading="lazy" allowfullscreen></iframe>
+            </div>
+            {if content:video_caption}<div class="text-center bg-secondary mt-2 rounded-3 text-white p-2">{content:video_caption}</div>{/if}
+        </div>
+        {/content}
+        <script defer src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+{/page_builder:videos}
+
+ {page_builder:prebuilt_items}
+        <div class="col-12 mt-3">{if '{content:value}' == 'contact'}{par_contact_form} {/if}</div>
+  {/page_builder:prebuilt_items}
+
+{page_builder:card_element}
+    <div class="row g-5 py-5">
+        {content}
+            <div class="col-12 col-md-6 col-lg-4 mb-3 pt-5 mx-auto">
+                <div class="card h-100 rounded-top-5 rounded-bottom-0 p-3 shadow border-0 bg-white roun">
+                    <div class="card-body">
+                        {if content:image}
+                            <div style="margin-top:-90px" class="card-icon justify-content-center d-flex align-items-center position-relative rounded-circle text-center mb-3 mx-auto shadow" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000" data-aos-easing="ease-out-sine">
+                                <img src="{content:image}" class="align-self-center mx-auto" width="60px" height="60px"
+                                    alt="{content:image}{description}{/content:image}"
+                                    title="{content:image}{title}{/content:image}">
+                            </div>
+                        {/if}
+                        {content:copy}
+                        {if content:link}<p class="card-text text-center"><a href="{content:link}" class="btn btn-primary text-center">{content:link_text}</a></p>{/if}
+                    </div>
+                </div>
+            </div>
+        {/content}
+    </div>
+{/page_builder:card_element}
+
+{if page_builder:last && !{page_builder:last name="section_divider"}}</section>{/if}
+{/page_builder}
+
