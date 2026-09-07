@@ -1,18 +1,19 @@
 {layout="_layouts/_page_wrapper"} 
-<header class="container-fluid position-relative max_page_width p-0 mb-5 mx-auto">
-        <picture>
+<header class="header container-fluid position-relative mx-auto ">
+       {!--} <picture>
             <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
             <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
             <source media="(max-width:992px)" srcset="{layout:tablet_header_image}">
-            <img src="{layout:desktop_header_image}" alt="Flowers" style="height:100% !important;overflow-y:hidden;object-fit:cover;object-position: 50%; width:100%">
-        </picture>
-        <div class="container-fluid position-absolute h-100 top-0">
-            <div class="row h-100 align-items-center">
-                    <div class="col-11 col-md-9 col-lg-8 mx-auto py-5 text-center">
-                        <h1 class="text-center display-5 text-white">{layout:main_head}</h1>
+            <img src="{layout:desktop_header_image}" alt="Flowers" class="w-100 h-100 object-fit-cover position-absolute">
+        </picture>{!--}
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-11 col-md-9 col-lg-8 mx-auto text-center">
+                        <h1 class="text-center text-white">{layout:main_head}</h1>
                     </div>
             </div>
         </div>
+        {par_drop_menu}
 </header>
 
 {layout:contents}

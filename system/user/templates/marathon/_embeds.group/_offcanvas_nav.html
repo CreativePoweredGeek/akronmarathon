@@ -1,0 +1,39 @@
+<nav class="navbar bg-body-tertiary navbar-expand-xl fixed-top shadow" style="height:80px;">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand" href="{site_url}">
+  <img src="{site_url}assets/images/logo-banner.svg" width="300px" class="banner-logo position-absolute top-0 start-50 translate-middle-x" data-aos="fade-down">
+  </a>
+    <button class="navbar-toggler border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#00aeef" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
+
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+           {exp:structure:nav_advanced show_depth="4"}
+           {if root:count == 1}
+            <ul class="navbar-nav me-xl-auto text-uppercase fw-bold">
+            {/if}
+           {if root:count == 4}
+            </ul><ul class="navbar-nav">
+            {/if} 
+           
+            <li class="nav-item">
+              <a href="{root:page_url}" class="nav-link{if segment_1 == '{root:url_title}'} active{/if}" {if
+                segment_1=='{root:url_title}' }aria-current="page" {/if}>{root:title}</a>
+            </li>
+            
+           {/exp:structure:nav_advanced}
+           <li class="nav-item"><a href="https://akronMoves.akronmarathon.org/" class="btn btn-primary me-3">Donate</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</nav>

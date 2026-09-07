@@ -25,9 +25,8 @@
 {/if}
 {layout:set name="pagetitle"}{title}{/layout:set}
 {layout:set name="main_head"}{if main_head != ""}{main_head}{if:else}{title}{/if}{/layout:set}
-{layout:set name="pagecontents"}
-    {if page_type == "page_builder"}{par_page_builder}{if:else}
-        <div class="container-xxl p-5"><div class="row"><div class="col-12">{text_only_page}</div></div></div>
-    {/if}
-{/layout:set}
+{layout:set name="pagecontents"}{par_page_builder}{/layout:set}
 {/exp:channel:entries}
+
+
+

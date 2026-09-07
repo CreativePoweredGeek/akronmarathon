@@ -1,0 +1,139 @@
+.crosslist {
+    list-style-type: none;
+    margin: 0
+}
+
+.crosslist li {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 5px 0
+}
+
+.crosslist li:before {
+    color: #bc4848;
+    content: '\f00d';
+    font-size: 12px;
+    margin-right: 8px !important;
+    font-family: FontAwesome;
+    position: relative;
+}
+
+/* EE6+ */
+[data-ee-version] .crosslist li:before {
+    font-family: 'Font Awesome 5 Free';
+}
+
+.crosslist li.last {
+    border-bottom: 0
+}
+
+.form-ctrls .btn {
+    display: inline-block;
+}
+
+.text-secondary {
+    color: var(--ee-text-secondary);
+}
+
+.speedy-vertical-rhythm {
+    margin-bottom: 20px;
+}
+
+.speedy-column {
+}
+
+.speedy-column:last-child {
+    border: none;
+}
+
+.txt-wrap .speedy-column h3 {
+    padding-bottom: 5px;
+}
+
+.txt-wrap .speedy-column h3 {
+    border-bottom: 2px solid #efefef;
+}
+
+.txt-wrap .speedy-column p {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.speedy-column h1 {
+    background: none;
+    border: none;
+    padding: 0 0 5px 0;
+}
+
+.speedy-columns {
+    overflow: hidden;
+}
+
+.speedy-column .form-btns {
+    text-align: left;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.speedy-flex {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.speedy-flex .speedy-column {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+@media (max-width: 1200px) {
+    .speedy-flex .speedy-column {
+        flex: none;
+        display: block;
+        padding: 0;
+        margin: 20px 0;
+        width: 100%;
+    }
+}
+
+.speedy-flex .speedy-column:first-child {
+    padding-left: 0;
+}
+
+
+.speedy-column--footer {
+    color: #999;
+    border-top: 1px solid;
+    padding: 10px 0;
+}
+.speedy-column--footer__end {
+    align-self: flex-end;
+}
+.speedy-column__active .speedy-column--footer {
+    border-color: #a0e6cb;
+}
+.speedy-column__next .speedy-column--footer {
+    border-color: #93d5f3;
+}
+
+.speedy-toolbar.toolbar .btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.speedy-settings li {
+    padding: 2px 0;
+}
+.speedy-settings li ul {
+    margin: 0 0 0 20px;
+}
+.speedy-settings code {
+    color: #666;
+}
+
+.field-instruct h3 {
+    margin-top: 20px;
+}

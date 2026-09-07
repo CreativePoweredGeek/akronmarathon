@@ -1,0 +1,47 @@
+{layout="_layouts/_page_wrapper"} 
+<header class="container-fluid position-relative max_page_width p-0 mb-5 mx-auto bg-dark">
+      
+        <div class="container-fluid h-100 mt-5">
+            <div class="row h-100 align-items-center">
+                    <div class="col-11 col-md-9 col-lg-8 mx-auto py-5 mt-5 text-center">
+                        <h1 class="text-center text-white">{layout:main_head}</h1>
+                    </div>
+            </div>
+        </div>
+</header>
+
+<div class="p-5 pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-xl-8 mx-auto">
+                <div class="mb-2 border-1 border-top-0 border-start-0 border-end-0 border-dark">
+                    {layout:post_date} | {layout:author} | {layout:cats}
+                </div>
+                {layout:pagecontents}
+            </div>
+        </div>
+    </div>
+
+{layout:contents} 
+
+</div>
+
+<div class="container py-5 my-5">
+    <div class="row">
+        <div class="col-6">
+            {exp:channel:next_entry channel="news"}
+    <a href="{site_url}news-media/{url_title}/" aria_lable="{title}" class="text-decoration-none text-dark float-end"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg></a>
+{/exp:channel:next_entry}
+            
+        </div>
+        <div class="col-6 fs-5">
+{exp:channel:prev_entry channel="news"}
+    <a href="{site_url}news-media/{url_title}/" aria_lable="{title}" class="text-decoration-none text-dark"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</svg></a>
+{/exp:channel:prev_entry}
+        </div>
+    </div>
+</div>

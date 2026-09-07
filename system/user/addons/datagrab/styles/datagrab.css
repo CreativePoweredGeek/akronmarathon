@@ -1,0 +1,179 @@
+.import-progress {
+    width: 250px;
+}
+
+.import-status,
+.import-progress-bar__active {
+    width: 250px;
+    min-height: 2em;
+}
+
+.import-progress-bar {
+    display: none;
+    width: 250px;
+    height: 0;
+    position: relative;
+}
+
+.import-progress-bar__active {
+    display: block;
+}
+
+.import-status__hidden {
+    display: none;
+}
+
+.progress-bar {
+    position: absolute;
+    top: .5em;
+    left: 0;
+    width: 100%;
+    height: 11px;
+}
+.progress-bar .progress span {
+    position: absolute;
+    display: inline-block;
+    padding-left: 5px;
+    width: 4em;
+    top: -3px;
+    font-size: 8px;
+    font-weight: bold;
+    color: #fff;
+    mix-blend-mode: difference;
+    animation: 0.8s linear;
+}
+.import-progress-bar__deleting .progress {
+    background-color: var(--ee-error) !important;
+}
+
+.import-progress-bar iframe {
+    width: 0;
+    border: 0;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dg-directories > [data-dropdown-react] {
+    display: inline-block;
+}
+
+.fas.fa-circle-exclamation {
+    color: var(--ee-error);
+}
+
+td.box {
+    white-space: normal;
+    color: var(--ee-text-tertiary);
+    background-color: var(--ee-bg-10);
+}
+
+.subtext {
+    color: var(--ee-text-secondary);
+}
+
+.datagrab_error {
+    color: var(--ee-error);
+}
+
+.datagrab_required {
+    color: var(--ee-error);
+    font-weight: bold;
+}
+
+.datagrab_subtext {
+    font-size: 12px;
+    color: var(--ee-text-secondary);
+}
+
+.app-listing__row {
+    background-color: var(--ee-panel-bg);
+}
+
+.ui-sortable-helper {
+    display: table;
+}
+
+.datagrab .table-responsive {
+    overflow-x: inherit;
+}
+
+.inline-block,
+div.inline-block {
+    display: inline-block !important;
+}
+
+.panel-body__table {
+    padding: 0;
+}
+
+.panel-body__table .table-responsive {
+    box-shadow: none;
+    border: none !important;
+}
+.panel-body__table .table-responsive .app-listing__row {
+    background: none !important;
+}
+
+/** Remove flex: 1 so the fieldsets stack */
+.datagrab-configure__section .fieldset-group,
+.datagrab-configure__table .fieldset-group {
+    display: block;
+}
+
+#fieldset-custom_fields .panel-heading {
+    background-color: var(--ee-bg-0);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#fieldset-custom_fields .panel-heading:has(+ .panel-body.hidden) {
+    border-radius: 6px;
+}
+
+.datagrab-addon-icon svg,
+.datagrab-addon-icon img {
+    fill: transparent !important;
+    width: 20px;
+    height: 20px;
+}
+
+.datagrab-addon-icon svg {
+    opacity: .25
+}
+
+.datagrab-panel .panel-heading {
+    display: flex;
+}
+
+.datagrab-panel .datagrab-field-wrapper  {
+    flex: 1;
+}
+
+.datagrab-panel .panel-heading .field-instruct,
+.datagrab-panel .panel-heading .field-instruct label {
+    margin: 0;
+}
+
+.datagrab-panel .panel-heading svg {
+    align-self: flex-end;
+}
+
+.datagrab-panel .panel-heading .app-badge {
+    cursor: default;
+}
+
+.datagrab-imports .ui-sortable-helper td {
+    background-color: var(--ee-panel-bg);
+}
+
+.datagrab-nested-config-option {
+    padding-left: 25px !important;
+    border-left: 1px solid var(--ee-panel-border);
+}
+
+.datagrab-nested-config-option h2 {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+}

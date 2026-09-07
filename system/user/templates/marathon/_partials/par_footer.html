@@ -1,7 +1,15 @@
-<footer class="container-fluid mt-5 mb-3 pb-5">
+<div class="container mb-5 mt-5">
+    <div class="row">
+        <div class="col mx-auto">
+            {par_traverse_siblings}
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid mt-5 mb-3 pb-5 bg-white">
 <div class="container">
     <div class="row">
-        <div class="col-8 col-md-4 col-lg-3 col-xl-2 mx-auto text-center"> <!--LOGO & POSITIONING -->
+        <div class="col-8 col-md-4 col-lg-4 col-xl-3 mx-auto text-center"> <!--LOGO & POSITIONING -->
             {if layout:footer_logo !=""}
             <img src="{layout:footer_logo}" class="img-fluid mb-3" alt="Porchlyt - Lighting the way for people, places and progress"
                 title="{layout:footer_logo_title}">
@@ -24,34 +32,29 @@
 
         <div class="col-md-4 col-xl-3"><!--SOCIAL-->
             
-                <address>
+                <address class="fs-5">
                     <strong>{site_name}</strong><br>
-                    {layout:address}
+                    {layout:address}<br>
+                    Phone: {layout:contact_phone}<br>
+                    Email: {layout:contact_email}
                 </address>
                <ul class="nav">
                 {layout:social}
                 
             </ul>
         </div>
-        <div class="col-md-8 col-xl-9">
-            <p class="">
-                
-                {layout:footer_menu_1}
-            </p>
-            <p>
-               <a href="{site_url}sitemap.xml" class="link-secondary" target="_blank">XML Sitemap</a> |
-                {layout:footer_menu_2}
-            </p>
+        <div class="col-md-4 col-xl-6 text-center">
+            <p class="">{layout:footer_menu_1}</p>
+            <p>{layout:footer_menu_2}</p>
             <p class="mt-5">{layout:copyright}</p>
         </div>
+        <div class="col-md-4 col-xl-3">&nbsp;</div>
         <div class="w-100"></div><!--divider-->
     </div>
 </div>
-<div class="container mt-5 pt-5">
-                <div class="row bg-white p-4 align-items-center rounded-1 g-5">
-                    <div class="col-12 mb-3">
-                        <h3>Affiliations & Memberships</h3>
-                    </div>
+<div class="container mt-5 ">
+                <div class="row align-items-center g-5">
+
                 {layout:affiliations}
             </div>
 </div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="201px" viewBox="0 0 200 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <polygon id="Rectangle" fill="#040404" fill-rule="nonzero" points="60.1611328 0.125976562 200 0.125976562 200 200.125977 0 200.125977 0 0.125976562 30.3037109 0 30 170.125977 170 170.125977 170 30.1259766 60.1611328 30.1259766"></polygon>
+            <g id="icon-datagrab" transform="translate(57.000000, 58.000000)">
+                <rect id="Rectangle" x="0" y="0" width="86" height="86"></rect>
+                <path d="M10,4 L53,4 L53,4 L53,27 L4,27 L4,10 C4,6.6862915 6.6862915,4 10,4 Z" id="Rectangle" fill="#99C2EA"></path>
+                <path d="M4,59 L53,59 L53,76 C53,79.3137085 50.3137085,82 47,82 L10,82 C6.6862915,82 4,79.3137085 4,76 L4,59 L4,59 Z" id="Rectangle" fill="#99C2EA"></path>
+                <rect id="Rectangle" fill="#99C2EA" x="4" y="31" width="49" height="23"></rect>
+                <path d="M46,15 L88,15 C91.3137085,15 94,17.6862915 94,21 L94,39 L94,39 L46,39 L46,15 Z" id="Rectangle" fill="#99C2EA" transform="translate(70.000000, 27.000000) rotate(90.000000) translate(-70.000000, -27.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

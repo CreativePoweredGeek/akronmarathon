@@ -1,0 +1,11 @@
+{exp:channel:entries channel="sponsors" dynamic="no" category="{embed:catID}"}
+<div class="col-md-4 col-lg-2">
+{if website != ''} 
+<a href="{website}" aria-describedby="Link to the {title} website">
+    <img src="{sponsor_logo:resize:webp width='350px'}"  class="img-fluid" alt="{title} logo" title="{title}">
+</a>
+{if:else} 
+<img src="{sponsor_logo:resize:webp width='350px'}"  class="img-fluid" alt="{title} logo" title="{title}">
+{/if}
+</div>   
+{/exp:channel:entries}

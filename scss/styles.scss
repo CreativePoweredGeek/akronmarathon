@@ -8,8 +8,135 @@
 @import "_bootstrap_scss/bootstrap";
 
 @import "_components/_media-queries";
+@import "_components/_countdown";
 $enable-negative-margins: true;
 
+html, body {
+    font-family: $body-font;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5 {
+  font-family: $body-font;  
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.subhead {
+    font-size: 18px;
+    
+  }
+
 .max_page_width {
-    max-width:1800px;
+    max-width:1600px;
+}
+
+.banner-logo {
+  width:300px;
+  
+  @include respond-below(md) {
+    width:230px;
+  }
+}
+
+header.header {
+  height:350px;
+  margin-top:80px;
+  background-image: url('/assets/images/header_images/blue-banner-dt.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-top:110px;
+
+  @include respond-below(xl) {
+    height:500px;
+    background-image: url('/assets/images/header_images/blue-banner-tab.webp');
+  }
+
+  @include respond-below(md) {
+    height:400px;
+    background-image: url('/assets/images/header_images/blue-banner-sm.webp');
+  }
+}
+
+
+
+
+header.event-header {
+  min-height: calc(100dvh - 100px);
+}
+//@media (min-width: 1200px) {
+//  .navbar-nav .nav-item.dropdown > .dropdown-menu {
+//    top: 100%;
+//    margin-top: 0; /* Prevents a gap that can cause the menu to close on transition */
+//  }
+
+//  .navbar-nav .nav-item.dropdown:hover > .dropdown-menu {
+//    display: block;
+//  }
+
+//  .navbar-nav .nav-item.dropdown > .dropdown-menu.dropdown-menu-end {
+//    right: 0;
+//    left: auto;
+//  }
+//}
+section.section {
+  padding-top: 72px;
+  padding-bottom:72px;
+}
+
+a.nav-link {
+
+  font-size: 16px;
+  
+    &.active {
+    color: $primary !important;
+    font-weight: 900;
+     font-size: 18px;
+  }
+}
+
+#post-listing h2 {
+  font-size:21px;
+  
+}
+
+.circle-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,.3);
+    color: #fff !important;
+    border: 1px solid $light;
+    cursor: pointer;
+    padding: 0;
+    margin: 4px;
+    transition: background-color .2s ease, transform .1s ease;
+    &:hover {
+         background-color: $secondary;
+    }
+  }
+
+  .social-fixed {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1030;
+
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+  }
+}
+.social-icon {
+  background-color: rgba(255,255,255,.6);
+    color: #fff !important;
 }

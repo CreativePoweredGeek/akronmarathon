@@ -1,0 +1,64 @@
+<div class="container-fluid clock">
+    <div class="row justify-content-center">
+        <div class="col mx-auto text-center">
+            <div class="countdown-container">
+                <div id="timer" class="timer">
+                    <div class="time-box">
+                        <span id="days">00</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours">00</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes">00</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds">00</span>
+                        <span class="label">Seconds</span>
+                    </div>
+                </div>
+                <div id="message">RACEDAY!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        // 1. Set the target date you are counting down to
+        const targetDate = new Date("Sep 26, 2026 06:29:59").getTime();
+
+        // 2. Update the countdown every single second
+        const timerInterval = setInterval(() => {
+            
+            // Get the current time in milliseconds
+            const now = new Date().getTime();
+            
+            // Find the distance between now and the target date
+            const difference = targetDate - now;
+
+            // 3. Check if the countdown has finished
+            if (difference < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("timer").style.display = "none";
+                document.getElementById("message").style.display = "block";
+                return;
+            }
+
+            // 4. Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // 5. Display the results in the HTML elements, adding leading zeros
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+
+        }, 1000);
+    </script>

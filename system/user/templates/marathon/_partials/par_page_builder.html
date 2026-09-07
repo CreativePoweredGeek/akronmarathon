@@ -1,12 +1,14 @@
 {page_builder}
 {if page_builder:first && !{page_builder:first name="section_divider"}}
-    <section class="container-xxl bg-white-translucent {if segment_1 !=''}primary-content{if:else}primary-content-home{/if}">
+<section class="section container-fluid">
+    <div class="container-xxl max_page_width">
 {/if}
 
 {page_builder:section_divider}
-    {if page_builder:count != '1'}   </section>{/if}  
+    {if page_builder:count != '1'}   </div></section>{/if}  
     {content}
-        <section class="container-xxl scroll-margin" {if '{content:id}' != ''}id="{content:id}"{/if}>
+    <section class="section container-fluid">
+        <div class="container-xxl max_page_width scroll-margin{if content:class != ''} {content:class}{/if}" {if '{content:id}' != ''}id="{content:id}"{/if}>
     {/content}
 {/page_builder:section_divider}
 
@@ -70,18 +72,17 @@
     <div class="row align-items-center">
         {content}
             {content:testimonial}
-                <div class="col-12 col-lg-6" data-aos="fade-left"> 
-                    <img src="{content:testimonial:photo}" class="img-fluid"  loading="lazy" alt="" title="">
-                </div>
-                <div class="col-12 col-lg-6 p-5" data-aos="fade-right"> 
-                    <div class="fs-3 mb-3 quote">"{content:testimonial:quote}"</div>
-                    <div class="text-end float-end">~ {content:testimonial:title}<br>
-                    <span class="small">{content:testimonial:credit}</span></div>
+                <div class="col-12 col-lg-6 p-5 mx-auto">
+                    <div class='fs-3 mb-3 quote'>"{content:testimonial:quote}"</div>
+                        <span class="small">{content:testimonial:credit}</span>
+                    </div>
                 </div>
             {/content:testimonial}
         {/content}
-        </div>
+    </div>
 {/page_builder:testimonial_block}
+
+
 
 {page_builder:profiles}
     <div class="row g-5 align-items-center">
@@ -185,15 +186,13 @@
 {page_builder:card_element}
     <div class="row g-5 py-5">
         {content}
-            <div class="col-12 col-md-6 col-lg-4 mb-3 pt-5 mx-auto">
-                <div class="card h-100 rounded-top-5 rounded-bottom-0 p-3 shadow border-0 bg-white roun">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 bg-white ">
                     <div class="card-body">
-                        {if content:image}
-                            <div style="margin-top:-90px" class="card-icon justify-content-center d-flex align-items-center position-relative rounded-circle text-center mb-3 mx-auto shadow" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000" data-aos-easing="ease-out-sine">
-                                <img src="{content:image}" class="align-self-center mx-auto" width="60px" height="60px"
+                        {if content:image != ''}
+                                <img src="{content:image}" class="card-img-top" 
                                     alt="{content:image}{description}{/content:image}"
                                     title="{content:image}{title}{/content:image}">
-                            </div>
                         {/if}
                         {content:copy}
                         {if content:link}<p class="card-text text-center"><a href="{content:link}" class="btn btn-primary text-center">{content:link_text}</a></p>{/if}
@@ -204,6 +203,37 @@
     </div>
 {/page_builder:card_element}
 
-{if page_builder:last && !{page_builder:last name="section_divider"}}</section>{/if}
+
+    {page_builder:faqs}
+     <div class="col-12 col-lg-8 mb-3 pt-5 mx-auto">
+    <div class="accordion" id="faqAccordion">
+        {content}
+            <div class="accordion-item mb-1">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{content:count}"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        {content:title}
+                    </button>
+                </h2>
+                <div id="collapse{content:count}" class="accordion-collapse collapse {if content:count == '1'}show{/if}" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {content:answer}
+                    </div>
+                </div>
+            </div>
+
+        {/content}
+    </div>
+    </div>
+    {/page_builder:faqs}
+    
+
+
+{if '{page_builder:last}' == '1'  && '{page_builder:last name="section_divider"}' == '0'}</div></section>{/if}
+
+{!--{if page_builder:last && !{page_builder:last name="section_divider"}}{/if}--}
 {/page_builder}
+
+
+
 

@@ -1,5 +1,5 @@
 {layout="_layouts/_homepage_layout"}
-{exp:channel:entries channel="global_content" entry_id="1" status="open" disable="categories|member_data|pagination|relationships" cache="no" refresh="60" cache_prefix="global"} 
+{exp:channel:entries channel="global_content" entry_id="6" status="open" disable="categories|member_data|pagination|relationships" cache="no" refresh="60" cache_prefix="global"} 
 {if no_results}NOTHING{/if}
 {par_global_content}
 {/exp:channel:entries}
@@ -30,9 +30,7 @@
 {layout:set name="pagetitle"}{title}{/layout:set}
 {layout:set name="main_head"}{if main_head != ""}{main_head}{if:else}{title}{/if}{/layout:set}
 {layout:set name="pagecontents"}
-    {if page_type == "page_builder"}{par_page_builder}{if:else}
-        <div class="container-xxl p-5"><div class="row"><div class="col-12">{text_only_page}</div></div></div>
-    {/if}
+    {par_page_builder}
 {/layout:set}
 {/exp:channel:entries}
 

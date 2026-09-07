@@ -1,10 +1,10 @@
 {layout="_layouts/_page_wrapper"} 
-<header class="container-fluid position-relative max_page_width p-0 mb-5 mx-auto">
+<header class="container-fluid position-relative max_page_width p-0 mb-5 mx-auto" style="max-height:400px !important">
         <picture>
             <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
             <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
             <source media="(max-width:992px)" srcset="{layout:tablet_header_image}">
-            <img src="{layout:desktop_header_image}" alt="Flowers" style="height:100% !important;overflow-y:hidden;object-fit:cover;object-position: 50%; width:100%">
+            <img src="{layout:desktop_header_image}" alt="Flowers" class="position-absolute w-100 h-100 object-fit-cover overflow-hidden">
         </picture>
         <div class="container-fluid position-absolute h-100 top-0">
             <div class="row h-100 align-items-center">

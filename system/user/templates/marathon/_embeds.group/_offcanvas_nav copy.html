@@ -1,0 +1,108 @@
+<nav class="navbar bg-light navbar-expand-xl fixed-top" data-bs-theme="light" style="height:100px">
+  <div class="container-xxl max_page_width">
+    <a class="navbar-brand py-2 me-3" href="{site_url}">
+      <img src="{site_url}assets/images/AM_RaceSeries_4C_Hor.svg" width="200" alt="Akron Marathon">
+    </a>
+
+    <div class="ms-auto d-flex flex-grow-1 flex-column align-items-end">
+      <div class="d-flex w-100 justify-content-end align-items-center gap-2 mb-2">
+        <ul class="navbar-nav flex-row flex-wrap justify-content-end align-items-center mb-0 pe-lg-3">
+          
+          <li class="nav-item">
+            <a href="{site_url}search/" class="nav-link d-inline border-end border-light p-2 p-md-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+              </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="mailto:?subject=Check this out at the Akron Marathon&body=Here is the link: {current_url}" class="nav-link  p-2 p-md-3 d-inline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+</svg>
+            </a>
+          </li>
+          {exp:channel:entries channel="global_content" entry_id="6" status="open" dynamic="no" disable="categories|member_data|pagination|relationships" cache="no" refresh="60" cache_prefix="global"}
+          {if no_results}{/if}
+          {social_media}
+          <li class="nav-item">
+            <a href="{social_media:address}" target="_blank" class="nav-link d-inline p-2 pe-lg-1 d-none d-md-block" alt="{social_media:network}"
+              title="{social_media:network}">
+              <img src="{social_media:icon}" width="21px" height="21px" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7479%) hue-rotate(70deg) brightness(99%) contrast(107%);" class="">
+            </a>
+          </li>
+          {/social_media}
+          {/exp:channel:entries}
+        </ul>
+
+        <button class="navbar-toggler bg-light flex-shrink-0" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <!--<span class="navbar-toggler-icon text-white"></span>-->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header bg-dark" style="height:100px">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a class="navbar-brand py-2 me-3" href="{site_url}">
+      <img src="{site_url}assets/images/AM_RaceSeries_WHT_Hor.svg" width="200" alt="Leadership Ohio">
+    </a></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body bg-dark">
+          {exp:structure:nav_advanced show_depth="4"}
+          {if root:count == 1}
+          <ul class="navbar-nav align-items-start ms-auto">
+            {!-- <li class="nav-item">
+              <a href="{site_url}" class="nav-link">Home</a>
+            </li> --}
+            {/if}
+            {if root:has_children}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle {if segment_1 == '{root:url_title}'} active{/if}"
+                href="{root:page_url}" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+                {root:title}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                {root:children}
+                {if child:url_title == 'akron-marathon'}
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{child:page_url}">{child:title}</a></li>
+                {if child:has_children}
+                  
+                {child:children}
+                {if grandchild:channel_id == '5'}
+                <li><a class="dropdown-item" href="{grandchild:page_url}">{grandchild:title}</a></li>
+                {/if}
+                {/child:children}
+                
+                {/if}
+                <li><hr class="dropdown-divider"></li>
+                {if:else}
+                <li><a class="dropdown-item" href="{child:page_url}">{child:title}</a></li>
+                {/if}
+                {/root:children}
+              </ul>
+            </li>
+            {if:else}
+            {if root:title != "Home"}
+            <li class="nav-item">
+              <a href="{root:page_url}" class="nav-link{if segment_1 == '{root:url_title}'} active{/if}" {if
+                segment_1=='{root:url_title}' }aria-current="page" {/if}>{root:title}</a>
+            </li>
+            {/if}
+            {/if}
+            {if root:count == root:total_results}
+          </ul>{/if}
+          {/exp:structure:nav_advanced}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

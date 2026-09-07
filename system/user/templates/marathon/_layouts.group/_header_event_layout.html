@@ -1,0 +1,28 @@
+{layout="_layouts/_page_wrapper"} 
+<header class="container-fluid position-relative max_page_width p-0 mx-auto" style="height:60vh;margin-top:99px;">
+        <picture>
+            <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
+            <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
+            <source media="(max-width:992px)" srcset="{layout:tablet_header_image}">
+            <img src="{layout:desktop_header_image}" alt="Flowers" class="w-100 h-100 object-fit-cover position-absolute">
+        </picture>
+        <div class="container-fluid position-absolute h-100 top-0">
+            <div class="row h-100 align-items-center">
+                    <div class="col-11 col-md-9 col-lg-6 p-5 text-center text-white mx-auto">
+                        <h1 class="text-center display-5 text-white">{layout:main_head}</h1>
+                        
+                    </div>
+            </div>
+        </div>
+</header>
+<div class="w-100 bg-dark py-2">
+{if layout:entry_id == "13"} 
+{par_marathon_countdown}
+{if:elseif layout:entry_id == "12"} 
+{par_august_countdown}
+{if:elseif layout:entry_id == "11"} 
+{par_june_countdown}
+{/if} 
+</div>
+{par_onpage_child_navigation}
+{layout:contents}

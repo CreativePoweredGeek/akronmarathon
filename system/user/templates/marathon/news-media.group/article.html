@@ -1,0 +1,23 @@
+{layout="_layouts/_news_layout"}
+{exp:channel:entries channel="global_content" dynamic="no"  disable="categories|member_data|pagination|relationships" cache="yes" refresh="60" cache_prefix="global"} 
+{par_global_content}
+{/exp:channel:entries}
+{exp:channel:entries channel="news" limit="1" disable="relationships" cache="no" refresh="60"} 
+{if no_results} 
+    {redirect="404"}
+  {/if}
+{layout:set name="entry_id"}{entry_id}{/layout:set}
+
+{layout:set name="pagetitle"}{title}{/layout:set}
+{layout:set name="main_head"}{title}{/layout:set}
+{layout:set name="post_date"}{entry_date format="%M %d, %Y"}{/layout:set} 
+{layout:set name="author"}{author}{/layout:set}
+{layout:set name="cats"} 
+{categories}
+    <a href="{path='news-media/index'}">{category_name}</a> |
+{/categories}
+{/layout:set}
+{layout:set name="pagecontents"}
+    {article_copy}
+{/layout:set}
+{/exp:channel:entries}

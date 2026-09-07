@@ -1,0 +1,51 @@
+.clock {
+    font-family: Arial, sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+}
+
+
+.countdown-container {
+    text-align: center;
+}
+
+.timer {
+    display: flex;
+    gap: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    @include respond-below(md) {
+        gap: 4px;
+    }
+}
+
+.time-box {
+    background-color: $primary;
+    padding: 15px 25px;
+    border-radius: 8px;
+    min-width: 80px;
+    @include respond-below(md) {
+        min-width:65px;
+        padding: 10px 20px;
+    }
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 5px;
+    @include respond-below(md) {
+        font-size: 12px;
+    }
+}
+
+#message {
+    font-size: 2rem;
+    color: #ff4757;
+    display: none;
+}

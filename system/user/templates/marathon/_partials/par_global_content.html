@@ -1,19 +1,55 @@
 {layout:set name="positioning"}{positioning_line}{/layout:set}
 {layout:set name="copyright"}{copyright}{/layout:set}
-{layout:set name="social"}
+
+{layout:set name="social-side"}
+   
+<div class="social-fixed d-flex flex-column gap-2">
     {social_media}
-        <li class="nav-item"><a href="{social_media:address}" class="nav-link link-secondary" 
-            alt="{social_media:network}" title="{social_media:network}">
-            {social_media:icon}
-        </a></li>
-    {/social_media}
-{/layout:set}
+  <a href="{social_media:address}" class="btn btn-dark text-white rounded-circle border-primary border-4 me-0 me-md-3 me-xl-3 social-icon" style="width:48px;height:48px;" target="_blank" aria-label="Click here to go to {social_media:address}">
+    <img src="{social_media:icon}">
+  </a>
+{/social_media}
+<a href="mailto:?subject=Check this out at the Akron Marathon&body=Here is the link: {current_url}" style="width:48px;height:48px;" class="btn btn-dark text-white rounded-circle border-primary border-4 me-0 me-md-3 me-xl-3 social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#000000" class="bi bi-send" viewBox="0 0 16 16">
+  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+</svg>
+            </a>
+</div>
+
+    {/layout:set}
+
+
+
+
+
+
+
+
+{!--{layout:set name="social"}
+   
+
+    {social_media}
+        <li class="nav-item">
+            <a href="{social_media:address}" class="nav-link link-secondary" aria-describedby="opens a new tab" aria-label="Click here to go to {social_media:address}" target="_blank">
+                <img src="{social_media:icon}" class="circle-btn" height="24px" width="24px" alt="Clicking this icon takes you to {social_media:network}">
+            </a>
+        </li>
+{/social_media}
+
+
+
+    {/layout:set}--}
 
 {layout:set name="footer_logo"}{footer_logo}{/layout:set} 
 {layout:set name="footer_logo_alt"}{footer_logo}{description}{/footer_logo} {/layout:set} 
 {layout:set name="footer_logo_title"}{footer_logo}{title}{/footer_logo}{/layout:set} 
-{layout:set name="address"}{address}{/layout:set} 
-{layout:set name="contact_email"}{contact_email}{/layout:set} 
+
+    {organization_contact}
+        {layout:set name="address"}{organization_contact:address}{/layout:set} 
+        {layout:set name="contact_email"}{organization_contact:email_address}{/layout:set}
+        {layout:set name="contact_phone"}{organization_contact:phone}{/layout:set}
+    {/organization_contact}
+    
 
 {layout:set name="footer_menu_1"}
 {footer_menu_1}
@@ -37,7 +73,7 @@
 
 {layout:set name="affiliations"}
     {affiliations}
-        <div class="col-6 col-md-3 col-xl-2">
+        <div class="col-6 col-md-3 col-xl-2 mx-auto">
             <img src="{affiliations:file:resize:webp width='200px'}" class="img-fluid" alt="{affiliations:alt_text}" title="{affiliations:title}" loading="lazy">
         </div>
     {/affiliations}

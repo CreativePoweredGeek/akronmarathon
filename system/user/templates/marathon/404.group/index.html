@@ -1,0 +1,46 @@
+{layout="_layouts/_basic_page_layout"}
+{exp:channel:entries channel="global_content" dynamic="no"  disable="categories|member_data|pagination|relationships" cache="yes" refresh="60" cache_prefix="global"} 
+{par_global_content}
+{/exp:channel:entries}
+{exp:channel:entries channel="site_pages" limit="1" disable="categories|member_data|pagination|relationships" cache="no" refresh="60"} 
+{if no_results} 
+    {redirect="404"}
+  {/if}
+{layout:set name="entry_id"}{entry_id}{/layout:set}
+{if desktop_image !=""} 
+    {layout:set name="desktop_header_image"}{desktop_image:Desktop}{/layout:set}{!--xl, xxl--}
+{if:else} 
+    {layout:set name="desktop_header_image"}{site_url}assets/images/default-dt.webp{/layout:set}{!--xl, xxl--}
+{/if}
+{if tablet_image !=""} 
+    {layout:set name="tablet_header_image"}{tablet_image}{/layout:set} {!--md,lg--}
+{if:else} 
+    {layout:set name="tablet_header_image"}{desktop_image:Tablet}{/layout:set}{!--xl, xxl--}
+{/if}
+
+{if smartphone_image !=""} 
+    {layout:set name="smartphone_header_image"}{smartphone_image}{/layout:set}{!--xl, xxl--}
+{if:else} 
+   {layout:set name="smartphone_header_image"}{desktop_image:Smartphone}{/layout:set} {!---xs, sm--}
+{/if}
+{layout:set name="pagetitle"}{title}{/layout:set}
+{layout:set name="main_head"}{if main_head != ""}{main_head}{if:else}{title}{/if}{/layout:set}
+{layout:set name="pagecontents"}
+    {if page_type == "page_builder"}{par_page_builder}{if:else}
+        <div class="container-xxl p-5"><div class="row"><div class="col-12">{text_only_page}</div></div></div>
+    {/if}
+{/layout:set}
+{/exp:channel:entries}
+
+{if segment_2 == ""} 
+{exp:structure:nav_advanced start_from="/{segment_1}" dynamic="no"}
+	<div class="col-md-6 mb-3">
+    <a href="{site_url}{segment_1}/{root:url_title}/" class="text-decoration-none">
+    <div class="card card-body p-5">
+    <h2>{root:title}</h2>
+    </div>
+    </div>
+	</a>
+{/exp:structure:nav_advanced}
+{/if}
+

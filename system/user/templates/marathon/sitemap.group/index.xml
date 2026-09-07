@@ -33,7 +33,7 @@
                     {embed="_embeds/_sitemap_listings_portfolio" channel="our-work"}
                   {if:else}
                   <url>
-                    <loc>sandbox.loc{root:page_url}</loc>
+                    <loc>dev.akronmarathon.org{root:page_url}</loc>
                   </url>
               {/if}
             {/if}

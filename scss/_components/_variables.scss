@@ -1,0 +1,17 @@
+$body-font: "Outfit", sans-serif;
+$headline-font: "Outfit", sans-serif;
+$dark: #004a8d;
+$light: #efefef;
+$secondary: #78777a;
+$primary: #00aeef;
+
+//Remap BS Colors 
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  light: $light,
+  dark: $dark
+);
+
+
+$btn-close-color: $light;
