@@ -57,9 +57,6 @@ header.header {
   }
 }
 
-
-
-
 header.event-header {
   min-height: calc(100dvh - 100px);
 }
@@ -139,4 +136,22 @@ a.nav-link {
 .social-icon {
   background-color: rgba(255,255,255,.6);
     color: #fff !important;
+}
+
+.btn.btn-cta {
+  background-color: orange; 
+  border-width:0px;
+  font-weight: 700;
+  &:hover {
+    background-color: orangered;
+  }
+}
+
+footer.footer {
+  background-image: url('/assets/images/footer-banner.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color:white;
+  padding-top:150px;
 }
