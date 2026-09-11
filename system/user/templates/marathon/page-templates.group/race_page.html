@@ -7,9 +7,16 @@
     {redirect="404"}
   {/if}
 {layout:set name="entry_id"}{entry_id}{/layout:set}
+
 {layout:set name="event_copy"}{event_promotional_copy}{/layout:set}
-{layout:set name="event_date"}{event_date_and_time format="%F %d %Y"}{/layout:set}
-{layout:set name="event_time"}{event_date_and_time format="%g:%s"}{/layout:set}
+{layout:set name="start_date"}{event_info:start_date format="%F %j, %Y"}{/layout:set}
+{layout:set name="start_time"}{event_info:start_time format="%g:%i %A"}{/layout:set}
+{layout:set name="end_time"}{event_info:end_time format="%g:%i %A"}{/layout:set}
+
+{layout:set name="clock_time"}{event_info:end_time format="%F %j, %Y %h:%i:%s"}{/layout:set}
+
+{layout:set name="register_link"}{registration_link}{/layout:set}
+
 {if desktop_image !=""} 
     {layout:set name="desktop_header_image"}{desktop_image:Desktop}{/layout:set}{!--xl, xxl--}
 {if:else} 
@@ -34,3 +41,36 @@
     {/if}
 {/layout:set}
 {/exp:channel:entries}
+
+
+<div class="container mt-5" id="post-listing">
+    <div class="row g-5">
+        <div class="col-12">
+            <h3>Race Event News</h3>
+        </div>
+       {if structure:page:entry_id == 12} {!--GY--}
+ {exp:channel:entries channel="news" dynamic="no" category="3" limit="3"}
+{if:elseif structure:page:entry_id == 13} {!--FE--}
+ {exp:channel:entries channel="news" dynamic="no" category="4" limit="3"}
+ {if:elseif structure:page:entry_id == 11} {!--AFM--}
+  {exp:channel:entries channel="news" dynamic="no" category="8" limit="3"}
+{/if}
+{if no_results} 
+    <div class="col-12 mb-3"><p class="fs-5 text-secondary text-center">There are no current news stories for this event</p></div>
+  {/if}
+        <div class="col-12 col-md-4 mb-3">
+            <a href="{site_url}news-media/{url_title}/" class="text-decoration-none">
+                <div class="card card-body">
+                    {entry_date format="%m/%d/%Y"}<br>
+                    <h2>{title}</h2>
+                </div>
+            </a>
+        </div>
+        {/exp:channel:entries}
+        <div class="col-12 text-center mt-5">
+            <a href="{site_url}news-media/" class="btn btn-outline-dark">More News</a>
+        </div>
+    </div>
+</div>
+
+

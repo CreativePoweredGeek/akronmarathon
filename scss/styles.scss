@@ -16,9 +16,16 @@ html, body {
     font-weight: 400;
 }
 h1, h2, h3, h4, h5 {
-  font-family: $body-font;  
-  font-weight: 600;
+  font-family: $headline-font;  
+  font-weight: 700;
   text-transform: uppercase;
+}
+h1.home {
+  text-shadow: 0px 0px 6px black;
+}
+.headline-font {
+  font-family: $headline-font;
+  font-weight: 700; 
 }
 .subhead {
     font-size: 18px;
@@ -31,20 +38,19 @@ h1, h2, h3, h4, h5 {
 
 .banner-logo {
   width:300px;
-  
+  margin-top:-6px;
   @include respond-below(md) {
     width:230px;
   }
 }
 
 header.header {
-  height:350px;
-  margin-top:80px;
+  height:420px;
   background-image: url('/assets/images/header_images/blue-banner-dt.webp');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 100%;
-  padding-top:110px;
+  padding-top:190px;
 
   @include respond-below(xl) {
     height:500px;
@@ -56,9 +62,40 @@ header.header {
     background-image: url('/assets/images/header_images/blue-banner-sm.webp');
   }
 }
+.image-mask {
+    background-image: url('/assets/images/header_images/image-mask-dt.png');
+  //background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0 calc(100% + 1px);
 
+  @include respond-below(xl) {
+    height:500px;
+    background-image: url('/assets/images/header_images/image-mask-tab.png');
+  }
+
+  @include respond-below(md) {
+    height:400px;
+    background-image: url('/assets/images/header_images/image-mask-sm.png');
+  }
+}
 header.event-header {
-  min-height: calc(100dvh - 100px);
+  min-height: 80vh;
+}
+.translucent {
+  min-height: 80px;
+
+  // Keep the blur off the navbar so its fixed offcanvas can fill the viewport.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: rgba(255,255,255,.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+  }
 }
 //@media (min-width: 1200px) {
 //  .navbar-nav .nav-item.dropdown > .dropdown-menu {
@@ -138,12 +175,20 @@ a.nav-link {
     color: #fff !important;
 }
 
+.btn {
+  text-transform: uppercase;
+}
+.btn.btn-primary, .btn.btn-dark {
+  color:white;
+}
 .btn.btn-cta {
-  background-color: orange; 
+  background-color: $cta_orange; 
   border-width:0px;
   font-weight: 700;
+  color:white;
+  text-transform: uppercase;
   &:hover {
-    background-color: orangered;
+    background-color: $cta_orange_dark;
   }
 }
 

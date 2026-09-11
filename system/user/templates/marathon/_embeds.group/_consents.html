@@ -1,0 +1,36 @@
+{if ! consent:has_responded:general-consent}
+{exp:consent:form consent="general-consent"}
+<div class="container-fluid px-3 fixed-bottom"><div class="row">
+<div class="col-12">
+<div class="alert alert-dark border-1 border-success text-light p-3" role="alert" style="background-color: rgba(0,0,0,.8) !important;">
+ {!-- loop through requests --}
+
+   {consents}
+   <div class="row align-items-center">
+    <div class="col-10">
+        {!--<h5>{consent_title}</h5>--}
+        <label>
+          <input type="hidden" name="{consent_short_name}" value="y">
+          {consent_request}
+        </label>
+ 
+    </div>
+    <div class="col">
+{!-- submit/save button--}    
+<button type="submit" class="btn btn-outline-light btn-lg rounded-pill float-end">Agree</button>
+
+{!-- link to privacy/cookies page --}
+{!--<a href="{path='site/cookies'}">Manage options</a>--}
+    </div>
+   </div>
+
+   {/consents}
+
+
+ 
+
+
+</div>
+</div></div></div>
+{/exp:consent:form}
+{/if}

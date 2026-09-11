@@ -4,7 +4,8 @@ $dark: #004a8d;
 $light: #efefef;
 $secondary: #78777a;
 $primary: #00aeef;
-
+$cta_orange: #ff9f19;
+$cta_orange_dark: #ff4c00;
 //Remap BS Colors 
 $theme-colors: (
   primary: $primary,
@@ -12,6 +13,5 @@ $theme-colors: (
   light: $light,
   dark: $dark
 );
-
 
 $btn-close-color: $light;

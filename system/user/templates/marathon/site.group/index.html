@@ -34,3 +34,24 @@
 {/layout:set}
 {/exp:channel:entries}
 
+<div class="container mt-5" id="post-listing">
+    <div class="row g-5">
+        <div class="col-12">
+            <h3>Recent News</h3>
+        </div>
+        {exp:channel:entries channel="news" dynamic="no" paginate="bottom" limit="3"}
+        <div class="col-12 col-md-4 mb-3">
+            <a href="{site_url}news-media/{url_title}/" class="text-decoration-none">
+                <div class="card card-body">
+                    {entry_date format="%m/%d/%Y"}<br>
+                    <h2>{title}</h2>
+                </div>
+            </a>
+        </div>
+
+        {/exp:channel:entries}
+        <div class="col-12 text-center mt-5">
+            <a href="{site_url}news-media/" class="btn btn-outline-dark">More News</a>
+        </div>
+    </div>
+</div>

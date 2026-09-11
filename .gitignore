@@ -3,3 +3,5 @@
 .htaccess
 /system/user/cache/*
 !system/user/cache/index.html
+xArchive.zip
+Archive_n.zip

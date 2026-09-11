@@ -1,0 +1,253 @@
+/**
+ * Low Events CSS file
+ *
+ * @package         low_events
+ * @author          Lodewijk Schutte ~ Low <hi@gotolow.com>
+ * @link            http://gotolow.com/addons/low-events
+ * @copyright       Copyright (c) 2012-2017, Low
+ */
+
+.low-events input {
+	display:inline-block;
+	margin-right:0;
+}
+
+.low-events input.date {
+	width:7em;
+	background-image:none;
+}
+
+.low-events input.time {
+	width:4em;
+}
+
+.low-events[data-time-format="12"] input.time {
+	width:5.5em;
+}
+
+.low-events.low-all-day input.time,
+.low-events.low-no-end-date span.low-events-end-date-time,
+.low-events.low-no-all-day label.all-day {
+	display:none;
+}
+
+.low-events label {
+	display:inline;
+	width:auto;
+	cursor:pointer;
+	margin-left:10px;
+}
+
+.low-events input.low-error {
+	/*border-color:#c66;*/
+	background-color:#fff0f0;
+}
+
+
+/**
+ *	Override Channel Form Styles
+ *  @todo: remove this as this shouldn't be necessary
+ */
+
+#cform .low-events input.date {
+	width:7em !important;
+}
+
+#cform .low-events input.time {
+	width:4em !important;
+}
+
+#cform .low-events[data-time-format="12"] input.time {
+	width:5.5em !important;
+}
+
+
+/**
+ *	jQuery UI Date Picker
+ */
+
+#ui-datepicker-div {
+	-webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+	-moz-box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+	box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+
+	background:#fff;
+	padding:10px;
+	width:250px;
+	font-size:12px;
+	border:1px solid #e6e6e6;
+}
+
+#ui-datepicker-div a {
+	text-decoration:none;
+}
+
+#ui-datepicker-div .ui-datepicker-header {
+	font-size:14px;
+}
+
+#ui-datepicker-div .ui-datepicker-next,
+#ui-datepicker-div .ui-datepicker-prev {
+	font-size:16px;
+}
+
+#ui-datepicker-div .ui-datepicker-prev {
+	float:left;
+	margin-left:10px;
+	cursor:pointer;
+}
+
+#ui-datepicker-div .ui-datepicker-next {
+	float:right;
+	margin-right:10px;
+	cursor:pointer;
+}
+
+#ui-datepicker-div .ui-datepicker-title {
+	font-weight:bold;
+	text-align:center;
+}
+
+#ui-datepicker-div .ui-datepicker-calendar {
+	/*border-collapse:collapse;*/
+	table-layout:fixed;
+	width:100%;
+	margin:10px 0 0 0;
+}
+
+#ui-datepicker-div .ui-datepicker-calendar th,
+#ui-datepicker-div .ui-datepicker-calendar td {
+	padding:5px;
+	font-size:11px;
+	text-align:center;
+}
+
+#ui-datepicker-div .ui-datepicker-calendar th {
+	text-transform:uppercase;
+}
+
+#ui-datepicker-div .ui-datepicker-calendar td {
+	border:1px solid #e6e6e6;
+	border-width:1px 1px 0 0;
+}
+
+#ui-datepicker-div .ui-datepicker-calendar tr:first-child td {
+	border-top:none;
+}
+
+#ui-datepicker-div .ui-datepicker-calendar tr td:last-child {
+	border-right:none;
+}
+
+#ui-datepicker-div .ui-datepicker-other-month {
+	background:#f3f3f3;
+}
+
+#ui-datepicker-div .ui-datepicker-other-month a {
+	/*opacity:0.4*/
+	color:#ccc;
+}
+
+#ui-datepicker-div .ui-datepicker-current-day {
+	background:#1f80bd !important;
+}
+
+#ui-datepicker-div .ui-datepicker-current-day a {
+	color:#fff;
+	font-weight:bold;
+}
+
+#ui-datepicker-div tr:hover td:not(.ui-datepicker-other-month) {
+	background:#fff;
+}
+
+#ui-datepicker-div tr td:not(.ui-datepicker-unselectable):hover {
+	background:#e8f8ff;
+	cursor:pointer;
+}
+
+/* Make it acceptable-looking in Channel Form */
+body:not(#top) #ui-datepicker-div .ui-datepicker-calendar {
+	border-collapse:collapse;
+}
+
+/**
+ *	jQuery Time Picker
+ */
+
+.ui-timepicker-wrapper {
+	overflow-y: auto;
+	height: 150px;
+	width: 6.5em;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	-webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+	-moz-box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+	box-shadow:0 2px 4px 0 rgba(0,0,0,.05);
+	outline: none;
+	z-index: 10001;
+	margin: 0;
+	font-size: 12px;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration {
+	width: 13em;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-30,
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-60 {
+	width: 11em;
+}
+
+.ui-timepicker-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ui-timepicker-duration {
+	margin-left: 5px; color: #888;
+}
+
+.ui-timepicker-list:hover .ui-timepicker-duration {
+	color: #888;
+}
+
+.ui-timepicker-list li {
+	padding: 3px 0 3px 5px;
+	cursor: pointer;
+	white-space: nowrap;
+	color: #000;
+	list-style: none;
+	margin: 0;
+}
+
+.ui-timepicker-list:hover .ui-timepicker-selected {
+	background: #fff; color: #000;
+}
+
+li.ui-timepicker-selected,
+.ui-timepicker-list li:hover,
+.ui-timepicker-list .ui-timepicker-selected:hover {
+	background: #1f80bd;
+	color: #fff;
+}
+
+li.ui-timepicker-selected .ui-timepicker-duration,
+.ui-timepicker-list li:hover .ui-timepicker-duration {
+	color: #ccc;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled,
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+	color: #888;
+	cursor: default;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+	background: #f2f2f2;
+}
+
+

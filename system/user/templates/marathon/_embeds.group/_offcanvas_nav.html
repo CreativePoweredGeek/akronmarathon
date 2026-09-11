@@ -1,5 +1,5 @@
-<nav class="navbar bg-body-tertiary navbar-expand-xl fixed-top shadow" style="height:80px;">
-  <div class="container-fluid px-0">
+<nav class="navbar navbar-expand-xl fixed-top translucent shadow">
+  <div class="container-xxl max_page_width px-0">
     <a class="navbar-brand" href="{site_url}">
   <img src="{site_url}assets/images/logo-banner.svg" width="300px" class="banner-logo position-absolute top-0 start-50 translate-middle-x" data-aos="fade-down">
   </a>
@@ -12,25 +12,52 @@
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{site_name}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
            {exp:structure:nav_advanced show_depth="4"}
            {if root:count == 1}
-            <ul class="navbar-nav me-xl-auto text-uppercase fw-bold">
+            <ul class="navbar-nav me-xl-auto text-uppercase fw-bold flex-grow-1">
             {/if}
            {if root:count == 4}
             </ul><ul class="navbar-nav">
             {/if} 
            
+
+            {if root:has_children}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {root:title}
+                  </a>
+                    <ul class="dropdown-menu mt-3">
+                      {if root:url_title == 'news-media'}
+                      <li><a class="dropdown-item" href="{site_url}news-media/">News</a></li>
+                      {/if}
+                      {root:children}
+                        <li><a class="dropdown-item" href="{child:page_url}">{child:title}</a></li>
+                        {if child:has_children AND child:url_title == 'akron-marathon'}
+                          
+                          {child:children}
+                          {if grandchild:channel_id == '5'}
+                          <li><a class="dropdown-item" href="{grandchild:page_url}">{grandchild:title}</a></li>
+                          {/if}
+                          {/child:children}
+                          
+                        {/if}
+                      {/root:children}
+                    </ul>
+                </li>
+            {if:else}
+
+
             <li class="nav-item">
               <a href="{root:page_url}" class="nav-link{if segment_1 == '{root:url_title}'} active{/if}" {if
                 segment_1=='{root:url_title}' }aria-current="page" {/if}>{root:title}</a>
             </li>
-            
+            {/if}
            {/exp:structure:nav_advanced}
-           <li class="nav-item"><a href="https://akronMoves.akronmarathon.org/" class="btn btn-primary btn-cta me-3 ms-3">Donate</a></li>
+           <li class="nav-item"><a href="https://akronMoves.akronmarathon.org/" class="btn btn-primary btn-cta me-xl-3 ms-xl-3" target="_blank">Donate</a></li>
         </ul>
 
       </div>

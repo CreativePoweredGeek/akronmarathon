@@ -1,28 +1,38 @@
 {layout="_layouts/_page_wrapper"} 
-<header class="container-fluid position-relative max_page_width p-0 mx-auto" style="height:60vh;margin-top:99px;">
+<header class="container-fluid event-header position-relative max_page_width p-0 mx-auto" style="height:60vh;">
         <picture>
             <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
             <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
             <source media="(max-width:992px)" srcset="{layout:tablet_header_image}">
             <img src="{layout:desktop_header_image}" alt="Flowers" class="w-100 h-100 object-fit-cover position-absolute">
         </picture>
-        <div class="container-fluid position-absolute h-100 top-0">
+        {!--<div class="container-fluid position-absolute h-100 top-0 p-0">
+            <img src="{site_url}assets/images/header_images/Image-mask-dt.png" alt="Flowers" class="w-100 h-100 object-fit-cover position-absolute">
+        </div>--}
+        <div class="container-fluid position-absolute image-mask h-100 top-0">
             <div class="row h-100 align-items-center">
-                    <div class="col-11 col-md-9 col-lg-6 p-5 text-center text-white mx-auto">
-                        <h1 class="text-center display-5 text-white">{layout:main_head}</h1>
-                        
-                    </div>
+                    <div class="col-10 col-xl-9 mx-auto">
+                    
+                        <div class="col-xl-9 text-white shadow-sm">
+                            <h1 class="text-start text-white">{layout:main_head}</h1>
+                            <p class="headline-font fs-3">{layout:start_date} {layout:start_time} - {layout:end_time}</p>
+                            <div class="mt-3">
+                                {if layout:register_link != ""} 
+                                <a href="{layout:register_link}"
+                                    class="btn btn-primary btn-cta btn-lg mx-2" target="_blank" aria-describedby="This link takes you to Race Registration">Register</a>
+                                {/if}
+                                    <a href="{site_url}plan-your-stay/" class="btn btn-primary btn-lg mx-2">Plan Your
+                                    Stay</a>
+                            </div>
+                        </div>
+
+                    
+                </div>
             </div>
         </div>
+           {par_drop_menu}
 </header>
-<div class="w-100 bg-dark py-2">
-{if layout:entry_id == "13"} 
-{par_marathon_countdown}
-{if:elseif layout:entry_id == "12"} 
-{par_august_countdown}
-{if:elseif layout:entry_id == "11"} 
-{par_june_countdown}
-{/if} 
+<div class="w-100 py-2">
+{par_countdown}
 </div>
-{par_onpage_child_navigation}
 {layout:contents}

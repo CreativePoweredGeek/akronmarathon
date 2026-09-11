@@ -1,0 +1,47 @@
+{exp:channel:entries
+    entry_id="{segment_3}"
+    dynamic="no"
+    limit="1"
+    show_future_entries="yes"
+    require_entry="yes"
+}
+    {if no_results}{redirect="404"}{/if}
+{exp:http_header
+    content_type="text/calendar"
+    charset="UTF-8"
+    content_disposition="attachment"
+    filename="event-{entry_id}.ics"
+}BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Akron Marathon//Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:DAYLIGHT
+DTSTART:20070311T020000
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:20071104T020000
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:event-{entry_id}@akronmarathon.org
+DTSTAMP:{current_time format="%Y%m%dT%H%i%s" timezone="UTC"}Z
+DTSTART;TZID=America/New_York:{event_info:start_date format="%Y%m%dT%H%i%s"}
+DTEND;TZID=America/New_York:{event_info:end_date format="%Y%m%dT%H%i%s"}
+SUMMARY:{title}
+LOCATION:{event_location}
+END:VEVENT
+END:VCALENDAR
+
+
+
+{/exp:channel:entries}

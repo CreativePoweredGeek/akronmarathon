@@ -40,13 +40,13 @@
 
 
 
-<div class="container" id="post-listing">
+<div class="container mt-5" id="post-listing">
     <div class="row g-5">
 
     {if segment_2 == "category"} 
-		{exp:channel:entries channel="news" dynamic="yes" paginate="bottom" category="{segment_3_category_id}"}
+		{exp:channel:entries channel="news" dynamic="yes" paginate="bottom" category="{segment_3_category_id}" limit="12"}
 	{if:else}
-		{exp:channel:entries channel="news" dynamic="no" paginate="bottom"}
+		{exp:channel:entries channel="news" dynamic="no" paginate="bottom" limit="12"}
 	{/if}
 <div class="col-6">
     <a href="{site_url}news-media/{url_title}/" class="text-decoration-none">

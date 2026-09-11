@@ -1,15 +1,16 @@
-
+ {if structure:child_ids != ''}
 <div class="position-absolute bottom-0 end-0 w-100">
 <div class="dropdown mb-5 float-end">
-  <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 Page Menu
 </button>
   <ul class="dropdown-menu">
-    {exp:structure:nav_advanced start_from="/{segment_1}/{segment_2}"}
+    {exp:structure:nav_advanced start_from="/{segment_1}/{segment_2}" strict_start_from="yes"}
       {if root:count == 1} {/if} 
             <li><a class="dropdown-item" href="{root:page_url}">{root:title}</a></li>
     {/exp:structure:nav_advanced}
     
   </ul>
 </div>
-</div>
+</div> 
+{/if}

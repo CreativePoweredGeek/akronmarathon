@@ -1,0 +1,16 @@
+ {if structure:sibling_ids != ''}
+<div class="position-absolute bottom-0 end-0 w-100">
+<div class="dropdown mb-5 float-end">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+Page Menu
+</button>
+  <ul class="dropdown-menu">
+    {exp:structure:nav_advanced entry_id = "{structure:sibling_ids}"}
+      {if child:count == 1} {/if} 
+            <li><a class="dropdown-item" href="{child:page_url}">{child:title}</a></li>
+    {/exp:structure:nav_advanced}
+    
+  </ul>
+</div>
+</div>
+{/if}
