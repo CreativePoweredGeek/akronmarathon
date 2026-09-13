@@ -1,13 +1,13 @@
 {page_builder}
 {if page_builder:first && !{page_builder:first name="section_divider"}}
-<section class="section container-fluid">
+<section class="section container-fluid mt-0" data-aos="fade-up" data-aos-duration="1000">
     <div class="container-xxl max_page_width">
 {/if}
 
 {page_builder:section_divider}
     {if page_builder:count != '1'}   </div></section>{/if}  
     {content}
-    <section class="section container-fluid">
+    <section class="section container-fluid {if content:section_color != ''}{content:section_color} p-3 p-lg-5{/if}"  data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
         <div class="container-xxl max_page_width scroll-margin{if content:class != ''} {content:class}{/if}" {if '{content:id}' != ''}id="{content:id}"{/if}>
     {/content}
 {/page_builder:section_divider}
@@ -15,7 +15,7 @@
 {page_builder:text_only}
         <div class="row g-5">
             {content}
-                <div class="{if content:field_total_rows == 1}col-lg-12 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}" >
+                <div class="{if content:field_total_rows == 1}col-lg-9 col-xl-8 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}" >
                    {content:text}
                 </div> 
             {/content}
@@ -24,16 +24,17 @@
 
 {page_builder:text_image}
     {content}   
-        <div class="row align-items-start">
+        <div class="row align-items-center">
            
             <div class="col-12 col-lg-6 h-100 p-0 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
+                
                 <picture>
                     <source media="(max-width:576px)" srcset="{content:image:resize width='576'}"> <!--XS-->
                     <source media="(max-width:768px)" srcset="{content:image:resize:webp width='690'}"> <!--SM-->
                     <source media="(max-width:992px)" srcset="{content:image:resize:webp width='990'}"> <!--M-->
                     <source media="(max-width:1200px)" srcset="{content:image:resize:webp width='885'}"> <!--LG-->
                     {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
-                    <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="img-fluid">
+                    <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="img-fluid rounded-5">
                 </picture>
                 
             </div>
@@ -147,7 +148,7 @@
 {/page_builder:people_bios}
 
 {page_builder:images}
-    <div class="row">
+    <div class="row g-5">
         {content}
         <div class="{if content:field_total_rows == 1}col-lg-12 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}">
             <picture>
@@ -156,7 +157,7 @@
                     <source media="(max-width:992px)" srcset="{content:file:resize width='990'}"> <!--M-->
                     <source media="(max-width:1200px)" srcset="{content:file:resize width='885'}"> <!--LG-->
                     {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
-                    <img src="{content:file width='885'}" alt="{content:file}{description}{/content:file}" title="{content:file}{title}{/content:file}" loading="lazy" class="img-fluid">
+                    <img src="{content:file width='885'}" alt="{content:file}{description}{/content:file}" title="{content:file}{title}{/content:file}" loading="lazy" class="img-fluid rounded-5">
                 </picture>
             {if content:caption}<caption class="text-center">{content:caption}</caption>{/if}
             </div>
@@ -205,19 +206,19 @@
 
 
     {page_builder:faqs}
-     <div class="col-12 col-lg-8 mb-3 pt-5 mx-auto">
+     <div class="col-12 col-md-12 col-xl-8 mb-3 pt-5 mx-auto">
     <div class="accordion" id="faqAccordion">
         {content}
             <div class="accordion-item mb-1">
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{content:count}"
                         aria-expanded="true" aria-controls="collapseOne">
-                        {content:title}
+                        <span class="heavy me-2">Q:</span> {content:title}
                     </button>
                 </h2>
                 <div id="collapse{content:count}" class="accordion-collapse collapse {if content:count == '1'}show{/if}" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                        {content:answer}
+                        <span class="heavy me-2">A:</span> {content:answer}
                     </div>
                 </div>
             </div>
@@ -227,6 +228,105 @@
     </div>
     {/page_builder:faqs}
     
+
+{page_builder:downloads}
+<div class="row row-cols row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center align-content-center">
+        {content}
+        <div class="col">
+        <a href="{content:file}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center" target="_blank">
+            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
+</svg></div>
+
+ &nbsp;{content:file_name}</a>
+        </div>
+        {/content}
+    </div>
+    {/page_builder:downloads}
+    {page_builder:simple_headline}
+    <div class="row">
+        {content}
+        <div class="col-12 mb-5">
+            <{content:h_element:value}>{content:headline}</{content:h_element:value}
+        </div>
+        {/content}
+    </div>
+    {/page_builder:simple_headline}
+
+
+
+    {page_builder:links}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center align-content-center">
+        {content}
+        {if content:download != ""} 
+
+        <div class="col mb-3">
+        <a href="{content:download}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center col-12" target="_blank">
+            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark float-start"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
+</svg></div>
+
+ &nbsp;{content:link_name}</a>
+        </div>
+
+        {if:elseif content:internal_link != ""} 
+
+             <div class="col my-3">
+        <a href="{content:internal_link}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center col-12">
+            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark float-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+</svg>
+            </div>
+
+ &nbsp;{content:link_name}</a>
+        </div>
+
+
+        {if:else} 
+
+
+     <div class="col mb-3">
+        <a href="{content:external_link}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center col-12" target="_blank">
+            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark float-start">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+</svg>
+
+            </div>
+
+ &nbsp;{content:link_name}</a>
+        </div>
+
+
+        {/if}
+
+
+        {/content}
+        </div>
+    {/page_builder:links}
+
+
+{page_builder:video_and_text}
+    {content}   
+        <div class="row align-items-start">
+           
+            <div class="col-12 col-lg-6 h-100 p-0 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
+                
+                <div class="ratio ratio-16x9">
+  <iframe src="{content:remote_video}" title="YouTube video" allowfullscreen></iframe>
+</div>
+                
+            </div>
+            <div class="col-12 col-lg-6 mt-3 mt-lg-0 {if content:orientation == 'image_right'}p-3 pe-lg-5{if:else}ps-3 ps-lg-5{/if}">
+                {content:text}
+            </div>
+            
+        </div>
+    {/content}
+{/page_builder:video_and_text}
 
 
 {if '{page_builder:last}' == '1'  && '{page_builder:last name="section_divider"}' == '0'}</div></section>{/if}

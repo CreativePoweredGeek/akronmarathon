@@ -28,8 +28,9 @@
 
 
     <script>
-        // 1. Set the target date you are counting down to
-        const targetDate = new Date("{layout:clock_time}").getTime();
+        // 1. Convert the event's Unix timestamp (seconds) to milliseconds.
+        // This keeps the target independent of the visitor's browser timezone.
+        const targetDate = Number("{layout:clock_time}") * 1000;
 
         // 2. Update the countdown every single second
         const timerInterval = setInterval(() => {
@@ -41,7 +42,7 @@
             const difference = targetDate - now;
 
             // 3. Check if the countdown has finished
-            if (difference < 0) {
+            if (difference <= 0) {
                 clearInterval(timerInterval);
                 document.getElementById("timer").style.display = "none";
                 document.getElementById("message").style.display = "block";

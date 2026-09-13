@@ -1,5 +1,5 @@
 {layout="_layouts/_page_wrapper"} 
-<header class="header container-fluid position-relative mx-auto ">
+<header class="header container-fluid position-relative mx-auto " data-aos="fade-down" data-aos-duration="1000">
        {!--} <picture>
             <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
             <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
@@ -15,7 +15,7 @@
                     </div>
             </div>
         </div>
-        {par_drop_menu}
+        {!--{par_drop_menu}--}
 </header>
-
+{par_onpage_child_navigation}
 {layout:contents}

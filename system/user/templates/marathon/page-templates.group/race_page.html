@@ -13,9 +13,15 @@
 {layout:set name="start_time"}{event_info:start_time format="%g:%i %A"}{/layout:set}
 {layout:set name="end_time"}{event_info:end_time format="%g:%i %A"}{/layout:set}
 
-{layout:set name="clock_time"}{event_info:end_time format="%F %j, %Y %h:%i:%s"}{/layout:set}
+{!-- Low Events uses the CMS site/member timezone; set both to America/New_York. --}
+{layout:set name="clock_time"}{event_info:start_stamp}{/layout:set}
 
 {layout:set name="register_link"}{registration_link}{/layout:set}
+
+{layout:set name="event_status"}{event_status}{item:value}{/event_status}{/layout:set}
+
+    
+
 
 {if desktop_image !=""} 
     {layout:set name="desktop_header_image"}{desktop_image:Desktop}{/layout:set}{!--xl, xxl--}
@@ -35,15 +41,12 @@
 {/if}
 {layout:set name="pagetitle"}{title}{/layout:set}
 {layout:set name="main_head"}{if main_head != ""}{main_head}{if:else}{title}{/if}{/layout:set}
-{layout:set name="pagecontents"}
-    {if page_type == "page_builder"}{par_page_builder}{if:else}
-        <div class="container-xxl p-5"><div class="row"><div class="col-12">{text_only_page}</div></div></div>
-    {/if}
+{layout:set name="pagecontents"}{par_page_builder}
 {/layout:set}
 {/exp:channel:entries}
 
 
-<div class="container mt-5" id="post-listing">
+<section class="section container-fluid" id="post-listing">
     <div class="row g-5">
         <div class="col-12">
             <h3>Race Event News</h3>
@@ -54,23 +57,33 @@
  {exp:channel:entries channel="news" dynamic="no" category="4" limit="3"}
  {if:elseif structure:page:entry_id == 11} {!--AFM--}
   {exp:channel:entries channel="news" dynamic="no" category="8" limit="3"}
-{/if}
+{if:else} 
+{exp:channel:entries channel="news" dynamic="no" limit="3"}
+  {/if}
 {if no_results} 
     <div class="col-12 mb-3"><p class="fs-5 text-secondary text-center">There are no current news stories for this event</p></div>
   {/if}
         <div class="col-12 col-md-4 mb-3">
             <a href="{site_url}news-media/{url_title}/" class="text-decoration-none">
-                <div class="card card-body">
-                    {entry_date format="%m/%d/%Y"}<br>
-                    <h2>{title}</h2>
-                </div>
-            </a>
+    <div class="card h-100 rounded-5 grow">
+        {if feature_image !=""} 
+            <img src="{feature_image}" class="card-img-top rounded-top-5" alt="...">
+        {if:else} 
+            <img src="{site_url}assets/images/blog_headers/AkronMarathonRaceSeries.png" class="card-img-top rounded-top-5" alt="Akron Marathon News">
+        {/if}
+        <div class="card-body p-5">
+            <h5 class="card-title small">{title}</h5>
+            <p class="card-text">{entry_date format="%m/%d/%Y"}</p>
+        </div>
+    </div>
+
+    </a>
         </div>
         {/exp:channel:entries}
         <div class="col-12 text-center mt-5">
             <a href="{site_url}news-media/" class="btn btn-outline-dark">More News</a>
         </div>
     </div>
-</div>
+</section>
 
 

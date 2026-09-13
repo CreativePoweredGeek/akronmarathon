@@ -1,10 +1,17 @@
 {layout="_layouts/_page_wrapper"} 
-<header class="container-fluid position-relative max_page_width p-0 mb-5 mx-auto">
+<header class="container-fluid position-relative max_page_width mb-5 mx-auto" style="padding-top:160px">
       
-        <div class="container h-100" style="margin-top:190px">
-            <div class="row h-100 align-items-center">
-                    <div class="col-11 col-md-9 col-lg-8 mx-auto">
-                        <h1 class="">{layout:main_head}</h1>
+        <div class="container h-100 rounded-5 border border-dark p-0">
+            <div class="row g-0 h-100 align-items-center">
+                <div class="col-md-6">
+                    {if layout:feature_image !=""} 
+                        <img src="{layout:feature_image}" class="card-img-top rounded-start-5" alt="...">
+                    {if:else} 
+                        <img src="{site_url}assets/images/blog_headers/AkronMarathonRaceSeries.png" class="card-img-top rounded-start-5" alt="Akron Marathon News">
+                    {/if}
+                </div>
+                    <div class="col-md-6 p-5 mx-auto">
+                        <h1 class="blog-head">{layout:main_head}</h1>
                     </div>
             </div>
         </div>
@@ -12,12 +19,15 @@
 
 <div class="p-5 pt-0">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-9 col-xl-8 mx-auto">
+        <div class="row g-5">
+            <div class="col-lg-9 col-xl-8">
                 <div class="mb-2 border-1 border-top-0 border-start-0 border-end-0 border-dark">
                     {layout:post_date} | {layout:author} | {layout:cats}
                 </div>
                 {layout:pagecontents}
+            </div>
+            <div class="col-lg-3 col-xl-4">
+                {layout:next-5}
             </div>
         </div>
     </div>

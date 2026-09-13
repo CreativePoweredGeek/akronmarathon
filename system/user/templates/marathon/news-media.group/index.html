@@ -44,16 +44,25 @@
     <div class="row g-5">
 
     {if segment_2 == "category"} 
-		{exp:channel:entries channel="news" dynamic="yes" paginate="bottom" category="{segment_3_category_id}" limit="12"}
+		{exp:channel:entries channel="news" dynamic="yes" paginate="bottom" category="{segment_3_category_id}" limit="6"}
 	{if:else}
-		{exp:channel:entries channel="news" dynamic="no" paginate="bottom" limit="12"}
+		{exp:channel:entries channel="news" dynamic="no" paginate="bottom" limit="6"}
 	{/if}
-<div class="col-6">
+<div class="col-md-6 col-xl-4">
     <a href="{site_url}news-media/{url_title}/" class="text-decoration-none">
-    <div class="card card-body">
-        {entry_date format="%m/%d/%Y"}<br>
-        <h2>{title}</h2>
+    <div class="card h-100 rounded-5 grow">
+        {if feature_image !=""} 
+            <img src="{feature_image}" class="card-img-top rounded-top-5" alt="...">
+        {if:else} 
+            <img src="{site_url}assets/images/blog_headers/AkronMarathonRaceSeries.png" class="card-img-top rounded-top-5" alt="Akron Marathon News">
+        {/if}
+        <div class="card-body p-5">
+            <h5 class="card-title">{title}</h5>
+            <p class="card-text small">{article_copy:limit characters="250"} MORE</p>
+            <p class="card-text">{entry_date format="%m/%d/%Y"}</p>
+        </div>
     </div>
+
     </a>
 </div>    
 
@@ -61,3 +70,5 @@
 {/exp:channel:entries}
    </div>
 </div>
+
+https://akronmarathon.loc/assets/images/blog_headers/AkronMarathonRaceSeries.png

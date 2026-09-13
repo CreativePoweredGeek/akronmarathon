@@ -5,11 +5,11 @@
    
 <div class="social-fixed d-flex flex-column gap-2">
     {social_media}
-  <a href="{social_media:address}" class="btn btn-dark text-white rounded-circle border-primary border-4 me-0 me-md-3 me-xl-3 social-icon" style="width:48px;height:48px;" target="_blank" aria-label="Click here to go to {social_media:address}">
+  <a href="{social_media:address}" class="btn btn-dark text-white rounded-circle border-primary border-4 social-icon" style="width:48px;height:48px;" target="_blank" aria-label="Click here to go to {social_media:address}">
     <img src="{social_media:icon}">
   </a>
 {/social_media}
-<a href="mailto:?subject=Check this out at the Akron Marathon&body=Here is the link: {current_url}" style="width:48px;height:48px;" class="btn btn-dark text-white rounded-circle border-primary border-4 me-0 me-md-3 me-xl-3 social-icon">
+<a href="mailto:?subject=Check this out at the Akron Marathon&body=Here is the link: {current_url}" style="width:48px;height:48px;" class="btn btn-dark text-white rounded-circle border-primary border-4 social-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#000000" class="bi bi-send" viewBox="0 0 16 16">
   <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
 </svg>
@@ -53,13 +53,13 @@
 
 {layout:set name="footer_menu_1"}
 {footer_menu_1}
-        <a href="{footer_menu_1:page}" class="link-secondary"> {footer_menu_1:link_text}</a> | 
+        <a href="{footer_menu_1:page}" class="link-primary"> {footer_menu_1:link_text}</a> | 
 {/footer_menu_1}
 {/layout:set}
 
 {layout:set name="footer_menu_2"}
 {footer_menu_2}
- <a href="{footer_menu_2:page}" class="link-secondary"> {footer_menu_2:link_text}</a> | 
+ <a href="{footer_menu_2:page}" class="link-primary"> {footer_menu_2:link_text}</a> | 
 {/footer_menu_2}
 {/layout:set}
 

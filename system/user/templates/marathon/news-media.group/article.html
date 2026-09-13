@@ -12,6 +12,7 @@
 {layout:set name="main_head"}{title}{/layout:set}
 {layout:set name="post_date"}{entry_date format="%M %d, %Y"}{/layout:set} 
 {layout:set name="author"}{author}{/layout:set}
+{layout:set name="feature_image"}{feature_image}{/layout:set}
 {layout:set name="cats"} 
 {categories}
     <a href="{path='news-media/index'}">{category_name}</a> |
@@ -21,3 +22,15 @@
     {article_copy}
 {/layout:set}
 {/exp:channel:entries}
+
+{layout:set name="next-5"} 
+{exp:channel:entries channel="news" dynamic="no" limit="5"} 
+<a href="{site_url}news-media/{url_title}/" class="text-decoration-none">
+<div class="card card-body rounded-5 mb-4">
+    <h4 class="small">{title}</h4>
+</div>
+</a>
+
+{/exp:channel:entries}
+
+{/layout:set}

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-xl fixed-top translucent shadow">
   <div class="container-xxl max_page_width px-0">
     <a class="navbar-brand" href="{site_url}">
-  <img src="{site_url}assets/images/logo-banner.svg" width="300px" class="banner-logo position-absolute top-0 start-50 translate-middle-x" data-aos="fade-down">
+  <img src="{site_url}assets/images/logo-banner.svg" width="300px" class="banner-logo position-absolute top-0 start-50 translate-middle-x">
   </a>
     <button class="navbar-toggler border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       
@@ -18,7 +18,7 @@
       <div class="offcanvas-body">
            {exp:structure:nav_advanced show_depth="4"}
            {if root:count == 1}
-            <ul class="navbar-nav me-xl-auto text-uppercase fw-bold flex-grow-1">
+            <ul class="navbar-nav me-xl-auto text-uppercase fw-bold flex-grow-1 ">
             {/if}
            {if root:count == 4}
             </ul><ul class="navbar-nav">
@@ -31,6 +31,9 @@
                     {root:title}
                   </a>
                     <ul class="dropdown-menu mt-3">
+                      {if root:url_title == 'race-series'} 
+                      <li><a class="dropdown-item" href="{site_url}events/">Calendar of Events</a></li>
+                      {/if}
                       {if root:url_title == 'news-media'}
                       <li><a class="dropdown-item" href="{site_url}news-media/">News</a></li>
                       {/if}
