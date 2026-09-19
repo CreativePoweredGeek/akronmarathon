@@ -35,12 +35,12 @@
 {/exp:channel:entries}
 
 <div class="container-xxl mt-5" id="post-listing"  data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
-    <div class="row g-5">
+    <div class="row g-3 g-lg-5">
         <div class="col-12">
             <h3>Recent News</h3>
         </div>
         {exp:channel:entries channel="news" dynamic="no" paginate="bottom" limit="3"}
-        <div class="col-12 col-md-4 mb-3">
+        <div class="col-12 col-md-4 mb-1 mb-md-3">
             <a href="{site_url}news-media/{url_title}/" class="text-decoration-none">
                 <div class="card rounded-5 grow">
                     {if feature_image !=""} 
@@ -55,7 +55,6 @@
                 </div>
             </a>
         </div>
-
         {/exp:channel:entries}
         <div class="col-12 text-center mt-5">
             <a href="{site_url}news-media/" class="btn btn-outline-dark">More News</a>

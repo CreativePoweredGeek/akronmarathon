@@ -25,6 +25,9 @@ h1, h2, h3, h4, h5 {
 }
 h1.blog-head {
   font-size: 32px;
+  @include respond-below(md) {
+    font-size: 21px;
+  }
 }
 h1.home {
   text-shadow: 0px 0px 6px black;
@@ -154,6 +157,13 @@ section.section {
   padding-top: 60px;
   padding-bottom:60px;
   border-radius: 60px;
+   @include respond-below(md) {
+      margin-top:30px;
+    margin-bottom:30px;
+    padding-top: 30px;
+    padding-bottom:30px;
+    border-radius: 48px;
+  }
 }
 
 a.nav-link {
@@ -171,6 +181,41 @@ a.dropdown-item {
   font-size: 14px;
   font-weight: 800;
   color:$secondary
+}
+
+@include media-breakpoint-down(xl) {
+  #offcanvasNavbar {
+    .offcanvas-header {
+      flex-shrink: 0;
+    }
+
+    .offcanvas-body {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior-y: contain;
+    }
+
+    .navbar-nav {
+      gap: .375rem;
+    }
+
+    .navbar-nav + .navbar-nav {
+      margin-top: .375rem;
+    }
+
+    .nav-link,
+    .navbar-nav > .nav-item > .btn,
+    .dropdown-item {
+      min-height: 3rem;
+      padding-top: .75rem;
+      padding-bottom: .75rem;
+    }
+
+    .dropdown-item {
+      white-space: normal;
+    }
+  }
 }
 
 #post-listing h2 {
@@ -255,6 +300,14 @@ a.dropdown-item {
   }
 }
 
+.border-change {
+  border-width: 1px;
+  @include respond-below(md) {
+    border-width: 0px !important;
+    border-color: white !important;
+  }
+}
+
 footer.footer {
   background-image: url('/assets/images/footer-banner.png');
   background-position: center top;
@@ -275,11 +328,20 @@ footer.footer {
     background-image: url('/assets/images/2pxRule-r.png');
   background-position: center center;
   background-repeat: no-repeat;
+  @include respond-below(md) {
+    background-image: url('/assets/images/2pxRule-r.png');
+    background-position: center -1200px;
+  }
+  
 }
 .lft-h-line {
     background-image: url('/assets/images/2pxRule-l.png');
   background-position: center center;
   background-repeat: no-repeat;
+   @include respond-below(md) {
+    background-image: url('/assets/images/2pxRule-l.png');
+    background-position: center -1200px;
+  }
 }
 
 .amcc-history {
@@ -290,4 +352,16 @@ footer.footer {
   background-attachment: fixed;
   opacity: 0.8;
   z-index: -900;
+}
+
+.blog-header-radius {
+    border-radius: 36px;
+  img {
+    border-radius: 36px 0px 0px 36px;
+    border-width: 0px;
+
+    @include respond-below(md) {
+      border-radius: 36px 36px 0px 0px;
+    }
+  }
 }

@@ -25,11 +25,13 @@
 
 {layout:set name="next-5"} 
 {exp:channel:entries channel="news" dynamic="no" limit="5"} 
+{if url_title !="{segment_2}"}
 <a href="{site_url}news-media/{url_title}/" class="text-decoration-none">
-<div class="card card-body rounded-5 mb-4">
+<div class="card card-body text-bg-dark rounded-3 mb-4">
     <h4 class="small">{title}</h4>
 </div>
 </a>
+{/if}
 
 {/exp:channel:entries}
 
