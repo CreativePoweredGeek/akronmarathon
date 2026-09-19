@@ -1,21 +1,21 @@
 {page_builder}
 {if page_builder:first && !{page_builder:first name="section_divider"}}
 <section class="section container-fluid mt-0" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container-xxl max_page_width">
+    <div class="container-xl max_page_width">
 {/if}
 
 {page_builder:section_divider}
     {if page_builder:count != '1'}   </div></section>{/if}  
     {content}
     <section class="section container-fluid {if content:section_color != ''}{content:section_color} p-3 p-lg-5{/if}"  data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
-        <div class="container-xxl max_page_width scroll-margin{if content:class != ''} {content:class}{/if}" {if '{content:id}' != ''}id="{content:id}"{/if}>
+        <div class="container-xl max_page_width scroll-margin{if content:class != ''} {content:class}{/if}" {if '{content:id}' != ''}id="{content:id}"{/if}>
     {/content}
 {/page_builder:section_divider}
 
 {page_builder:text_only}
-        <div class="row g-5">
+        <div class="row g-5 mb-5">
             {content}
-                <div class="{if content:field_total_rows == 1}col-lg-9 col-xl-8 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}" >
+                <div class="{if content:field_total_rows == 1}col-lg-12 col-xl-12 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}" >
                    {content:text}
                 </div> 
             {/content}
@@ -24,9 +24,9 @@
 
 {page_builder:text_image}
     {content}   
-        <div class="row align-items-center">
+        <div class="row mb-5">
            
-            <div class="col-12 col-lg-6 h-100 p-0 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
+            <div class="col-12 col-md-4 col-xl-3 h-100 p-0 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
                 
                 <picture>
                     <source media="(max-width:576px)" srcset="{content:image:resize width='576'}"> <!--XS-->
@@ -38,7 +38,7 @@
                 </picture>
                 
             </div>
-            <div class="col-12 col-lg-6 mt-3 mt-lg-0 {if content:orientation == 'image_right'}p-3 pe-lg-5{if:else}ps-3 ps-lg-5{/if}">
+            <div class="col-12 col-md-8 col-xl-9 mt-3 mt-lg-0 {if content:orientation == 'image_right'}p-3 pe-lg-5{if:else}ps-3 ps-lg-5{/if}">
                 {content:text}
             </div>
             
@@ -171,7 +171,7 @@
         <div
             class="{if content:field_total_rows == 1}col-lg-12 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}">
             <div class="ratio ratio-16x9 rounded-2">
-                <iframe src="{content:video_url}" title="YouTube video" loading="lazy" allowfullscreen></iframe>
+                {content:video_embed_code}
             </div>
             {if content:video_caption}<div class="text-center bg-secondary mt-2 rounded-3 text-white p-2">{content:video_caption}</div>{/if}
         </div>
@@ -185,17 +185,17 @@
   {/page_builder:prebuilt_items}
 
 {page_builder:card_element}
-    <div class="row g-5 py-5">
+    <div class="row row-cols-2 row-cols-lg-4 justify-content-center">
         {content}
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 border-0 bg-white ">
-                    <div class="card-body">
-                        {if content:image != ''}
+            <div class="col">
+                <div class="card h-100 border-0 bg-transparent ">
+                    {if content:image != ''}
                                 <img src="{content:image}" class="card-img-top" 
                                     alt="{content:image}{description}{/content:image}"
                                     title="{content:image}{title}{/content:image}">
                         {/if}
-                        {content:copy}
+                    <div class="card-body">
+                        <div class="card-text">{content:copy}</div>
                         {if content:link}<p class="card-text text-center"><a href="{content:link}" class="btn btn-primary text-center">{content:link_text}</a></p>{/if}
                     </div>
                 </div>
@@ -230,18 +230,44 @@
     
 
 {page_builder:downloads}
-<div class="row row-cols row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center align-content-center">
-        {content}
-        <div class="col">
-        <a href="{content:file}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center" target="_blank">
-            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
-</svg></div>
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3 justify-content-center">
+    {content}
+    <div class="col">
+        <a href="{content:file}"
+           class="file-tile btn btn-primary ratio ratio-1x1 rounded-3 overflow-hidden"
+           target="_blank"
+           rel="noopener"
+           aria-label="Download {content:file_name}">
 
- &nbsp;{content:file_name}</a>
-        </div>
-        {/content}
+            <span class="file-tile-name position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center gap-2 p-3 text-center text-break lh-sm">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         fill="currentColor"
+         class="bi bi-cloud-arrow-down-fill opacity-75 flex-shrink-0"
+         viewBox="0 0 16 16"
+         aria-hidden="true">
+        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
+    </svg>
+
+    <span>{content:file_name}</span>
+</span>
+
+            <span class="file-tile-icon d-flex align-items-center justify-content-center"
+                  aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="48"
+                     height="48"
+                     fill="currentColor"
+                     class="bi bi-cloud-arrow-down-fill"
+                     viewBox="0 0 16 16">
+                    <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
+                </svg>
+            </span>
+        </a>
     </div>
+    {/content}
+</div>
     {/page_builder:downloads}
     {page_builder:simple_headline}
     <div class="row">
@@ -256,58 +282,137 @@
 
 
     {page_builder:links}
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center align-content-center">
-        {content}
-        {if content:download != ""} 
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3 justify-content-center">
+    {content}
 
-        <div class="col mb-3">
-        <a href="{content:download}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center col-12" target="_blank">
-            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark float-start"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
-</svg></div>
+    {if content:download != ""}
+    <div class="col">
+        <div class="ratio ratio-1x1">
+            <a href="{content:download}"
+               class="file-tile btn btn-primary rounded-3 overflow-hidden"
+               target="_blank"
+               rel="noopener"
+               aria-label="Download {content:link_name}">
 
- &nbsp;{content:link_name}</a>
+                <span class="file-tile-name position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center gap-2 p-3 text-center text-break lh-sm">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         fill="currentColor"
+         class="bi bi-cloud-arrow-down-fill opacity-75 flex-shrink-0"
+         viewBox="0 0 16 16"
+         aria-hidden="true">
+        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
+    </svg>
+
+    <span>{content:link_name}</span>
+</span>
+
+                <span class="file-tile-icon position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                      aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="48"
+                         height="48"
+                         fill="currentColor"
+                         class="bi bi-cloud-arrow-down-fill"
+                         viewBox="0 0 16 16">
+                        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
+                    </svg>
+                </span>
+            </a>
         </div>
+    </div>
 
-        {if:elseif content:internal_link != ""} 
+    {if:elseif content:internal_link != ""}
+    <div class="col">
+        <div class="ratio ratio-1x1">
+            <a href="{content:internal_link}"
+               class="file-tile btn btn-primary rounded-3 overflow-hidden"
+               aria-label="Open {content:link_name}">
 
-             <div class="col my-3">
-        <a href="{content:internal_link}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center col-12">
-            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark float-start">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
-  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
-</svg>
-            </div>
+                <span class="file-tile-name position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center gap-2 p-3 text-center text-break lh-sm">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         fill="currentColor"
+         class="bi bi-link-45deg opacity-75 flex-shrink-0"
+         viewBox="0 0 16 16"
+         aria-hidden="true">
+        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+    </svg>
 
- &nbsp;{content:link_name}</a>
+    <span>{content:link_name}</span>
+</span>
+
+                <span class="file-tile-icon position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                      aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="48"
+                         height="48"
+                         fill="currentColor"
+                         class="bi bi-link-45deg"
+                         viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                    </svg>
+                </span>
+            </a>
         </div>
+    </div>
 
+    {if:else}
+    <div class="col">
+        <div class="ratio ratio-1x1">
+            <a href="{content:external_link}"
+               class="file-tile btn btn-primary rounded-3 overflow-hidden"
+               target="_blank"
+               rel="noopener"
+               aria-label="{content:link_name} — opens in a new tab">
 
-        {if:else} 
+                <span class="file-tile-name position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center gap-2 p-3 text-center text-break lh-sm">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         fill="currentColor"
+         class="bi bi-box-arrow-up-right opacity-75 flex-shrink-0"
+         viewBox="0 0 16 16"
+         aria-hidden="true">
+        <path fill-rule="evenodd"
+              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+        <path fill-rule="evenodd"
+              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+    </svg>
 
+    <span>{content:link_name}</span>
+</span>
 
-     <div class="col mb-3">
-        <a href="{content:external_link}" class="btn btn-primary btn-lg rounded-pill ps-2 align-items-center col-12" target="_blank">
-            <div style="width:36px;height:36px;display: inline-block;" class="rounded-circle bg-light text-dark float-start">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-</svg>
-
-            </div>
-
- &nbsp;{content:link_name}</a>
+                <span class="file-tile-icon position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                      aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="48"
+                         height="48"
+                         fill="currentColor"
+                         class="bi bi-box-arrow-up-right"
+                         viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                        <path fill-rule="evenodd"
+                              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                    </svg>
+                </span>
+            </a>
         </div>
+    </div>
+    {/if}
 
-
-        {/if}
-
-
-        {/content}
-        </div>
+    {/content}
+</div>
     {/page_builder:links}
 
+    {page_builder:faqs_by_category}
+        {embed="_embeds/_faq_by_category" cat="{content}"}
+    {/page_builder:faqs_by_category}
 
 {page_builder:video_and_text}
     {content}   
@@ -328,11 +433,24 @@
     {/content}
 {/page_builder:video_and_text}
 
+    {page_builder:cta}
+    <div class="row">
+        {content}
+         <div class="col-12 text-center mt-5 mb-5 ">
+           {if content:cta_copy != ""}{content:cta_copy}{/if}
+            <a href="{if content:link != ''}{content:link}{if:else}{content:manual_link}{/if}" class="btn btn-dark btn-lg rounded-pill">{content:link_text}</a>
+         </div>
+        {/content}
+    </div>
+    {/page_builder:cta}
 
 {if '{page_builder:last}' == '1'  && '{page_builder:last name="section_divider"}' == '0'}</div></section>{/if}
 
 {!--{if page_builder:last && !{page_builder:last name="section_divider"}}{/if}--}
 {/page_builder}
+
+
+
 
 
 

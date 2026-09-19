@@ -1,0 +1,20 @@
+<div class="col-12 col-md-12 col-xl-8 mb-3 pt-5 mx-auto">
+    <div class="accordion" id="faqAccordion">
+{exp:channel:entries channel="faqs" category="{embed:cat}" dynamic="no"}
+<div class="accordion-item mb-1">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{count}"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        <span class="heavy me-2">Q:</span> {title}
+                    </button>
+                </h2>
+                <div id="collapse{count}" class="accordion-collapse collapse {if count == '1'}show{/if}" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <span class="heavy me-2">A:</span> {answer}
+                    </div>
+                </div>
+            </div>
+
+{/exp:channel:entries}
+</div>
+</div>

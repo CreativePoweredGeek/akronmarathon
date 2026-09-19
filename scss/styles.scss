@@ -4,6 +4,7 @@
 
 @import "_bootstrap_scss/bootstrap-grid";
 @import "_bootstrap_scss/bootstrap-reboot";
+
 @import "_bootstrap_scss/bootstrap-utilities";
 @import "_bootstrap_scss/bootstrap";
 
@@ -136,21 +137,22 @@ header.event-header {
     -webkit-backdrop-filter: blur(10px); /* Safari support */
   }
 }
-//@media (min-width: 1200px) {
-//  .navbar-nav .nav-item.dropdown > .dropdown-menu {
-//    top: 100%;
-//    margin-top: 0; /* Prevents a gap that can cause the menu to close on transition */
-//  }
+@include media-breakpoint-up(xl) {
+  .navbar-nav .nav-item.dropdown > .dropdown-menu {
+    top: 100%;
+    margin-top: 0;
+  }
 
-//  .navbar-nav .nav-item.dropdown:hover > .dropdown-menu {
-//    display: block;
-//  }
+  .navbar-nav .nav-item.dropdown:hover > .dropdown-menu,
+  .navbar-nav .nav-item.dropdown:focus-within > .dropdown-menu {
+    display: block;
+  }
 
-//  .navbar-nav .nav-item.dropdown > .dropdown-menu.dropdown-menu-end {
-//    right: 0;
-//    left: auto;
-//  }
-//}
+  .navbar-nav .nav-item.dropdown > .dropdown-menu.dropdown-menu-end {
+    right: 0;
+    left: auto;
+  }
+}
 section.section {
   margin-top:60px;
   margin-bottom:60px;
@@ -364,4 +366,37 @@ footer.footer {
       border-radius: 36px 36px 0px 0px;
     }
   }
+}
+.intro {
+  /* Multiplies the default base font size (1rem) by 1.3 */
+  font-size: calc(var(--bs-body-font-size, 1rem) * 1.4);
+  color: $secondary;
+}
+.align-center {
+  text-align: center;;
+}
+.file-tile-name,
+.file-tile-icon {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.file-tile-icon {
+    opacity: 0;
+}
+
+.file-tile:hover .file-tile-name,
+.file-tile:focus-visible .file-tile-name {
+    opacity: 0;
+}
+
+.file-tile:hover .file-tile-icon,
+.file-tile:focus-visible .file-tile-icon {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .file-tile-name,
+    .file-tile-icon {
+        transition: none;
+    }
 }

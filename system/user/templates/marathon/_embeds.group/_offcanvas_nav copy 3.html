@@ -27,27 +27,16 @@
 
             {if root:has_children}
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle d-none d-xl-block{if segment_1 == '{root:url_title}'} active{/if}"
-                     href="{root:page_url}"
-                     {if segment_1 == '{root:url_title}'}aria-current="page"{/if}>
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {root:title}
                   </a>
-                  <a class="nav-link dropdown-toggle d-xl-none{if segment_1 == '{root:url_title}'} active{/if}"
-                     href="#"
-                     role="button"
-                     data-bs-toggle="dropdown"
-                     aria-expanded="false">
-                    {root:title}
-                  </a>
-                    <ul class="dropdown-menu mt-3 mt-xl-0">
-                      <li class="d-xl-none">
-                        <a class="dropdown-item{if segment_1 == '{root:url_title}'} active{/if}"
-                           href="{root:page_url}"
-                           {if segment_1 == '{root:url_title}'}aria-current="page"{/if}>Overview</a>
-                      </li>
-                      <li class="d-xl-none"><hr class="dropdown-divider"></li>
+                    <ul class="dropdown-menu mt-3">
                       {if root:url_title == 'race-series'} 
+                      <li><a class="dropdown-item" href="{site_url}race-series/">{root:title}</a></li>
                       <li><a class="dropdown-item" href="{site_url}events/">Calendar of Events</a></li>
+                      {/if}
+                      {if root:url_title == 'news-media'}
+                      <li><a class="dropdown-item" href="{site_url}news-media/">News</a></li>
                       {/if}
                       {root:children}
                         <li><a class="dropdown-item" href="{child:page_url}">{child:title}</a></li>
