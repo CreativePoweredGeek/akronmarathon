@@ -16,6 +16,8 @@
                         <div class="col-md-10 col-xl-9 text-white text-center shadow-sm mx-auto">
                             <h1 class="text-white">{layout:main_head}</h1>
                             <p class="headline-font fs-3">{layout:start_date} {layout:start_time}</p>
+                            <div class="mx-auto mt-3 position-relative" style="z-index:9999;">{par_drop_menu}</div>
+
                             <div class="mt-3">
                               
                                 {if layout:event_status == 'so'} 
@@ -42,5 +44,6 @@
 </header>
 <div class="w-100 py-2">
 {par_countdown}
+
 </div>
 {layout:contents}

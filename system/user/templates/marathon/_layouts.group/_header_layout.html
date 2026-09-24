@@ -1,5 +1,5 @@
 {layout="_layouts/_page_wrapper"} 
-<header class="header container-fluid position-relative mx-auto " data-aos="fade-down" data-aos-duration="1000">
+<header class="header container-fluid position-relative mx-auto overflow-visible" data-aos="fade-down" data-aos-duration="1000">
        {!--} <picture>
             <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
             <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
@@ -12,10 +12,11 @@
                         <h1 class="text-center text-white lh-1">{layout:main_head}
                         {if '{layout:main_subhead}' != ''}<br><span class="subhead">{layout:main_subhead}</span>{/if}
                         </h1>
+                        <div class="mx-auto mt-3 position-relative" style="z-index:9999;">{par_drop_menu}</div>
                     </div>
             </div>
         </div>
-        {!--{par_drop_menu}--}
+        
 </header>
 {!--{par_onpage_child_navigation}--}
 {layout:contents}

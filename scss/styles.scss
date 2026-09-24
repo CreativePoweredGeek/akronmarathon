@@ -16,9 +16,9 @@ html, body {
     font-family: $body-font;
     font-weight: 400;
 }
-p, blockquote,ul, li {
-  font-size:1.2rem;
-}
+//p, blockquote,ul, li {
+ // font-size:1.2rem;
+//}
 h1, h2, h3, h4, h5 {
   font-family: $headline-font;  
   font-weight: 700;
@@ -74,32 +74,29 @@ header.header {
     background-image: url('/assets/images/header_images/blue-banner-sm.webp');
   }
 }
+
+img.btm-border {
+  border-bottom: solid 12px $primary;
+}
+
 .homepage_header {
-   height:90vh;
-   max-height: 800px;
-  @include respond-below(md) {
-    max-height:100vh;
+  min-height:700px;
+  padding-top: 200px;
+ @include respond-below(md) {
+    min-height:95vh;
   }
+}
 
-  }
-
-  .grow {
-    background-color: white;
-    transition: transform .5s;
-    &:hover {
-         transform: scale(1.05);
-         background-color: $dark;
-         color:white;
-    }
-
-  }
 .content-area {
   padding-top:220px;
+  
   @include respond-below(xl) {
    padding-top:200px;
+    
    }
    @include respond-below(md) {
    padding-top:120px;
+  
    }
 }
 .image-mask {
@@ -120,8 +117,20 @@ header.header {
   }
 }
 header.event-header {
-  min-height: 80vh;
+  min-height: 600px;
 }
+
+  .grow {
+    background-color: white;
+    transition: transform .5s;
+    &:hover {
+         transform: scale(1.05);
+         background-color: $dark;
+         color:white;
+    }
+
+  }
+
 .translucent {
   min-height: 80px;
 
@@ -154,28 +163,24 @@ header.event-header {
   }
 }
 section.section {
-  margin-top:60px;
-  margin-bottom:60px;
-  padding-top: 60px;
-  padding-bottom:60px;
+
+  padding:60px;
   border-radius: 60px;
    @include respond-below(md) {
-      margin-top:30px;
-    margin-bottom:30px;
-    padding-top: 30px;
-    padding-bottom:30px;
+    
+    padding: 30px;
     border-radius: 48px;
   }
 }
 
 a.nav-link {
 
-  font-size: 16px;
+  font-size: 14px;
   
     &.active {
     color: $primary !important;
     font-weight: 900;
-     font-size: 18px;
+     font-size: 14px;
   }
 }
 

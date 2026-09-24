@@ -1,0 +1,29 @@
+{layout="_layouts/_page_wrapper"} 
+<header class="container-fluid event-header position-relative max_page_width p-0 mx-auto" style="height:60vh;"  data-aos="fade-down" data-aos-duration="1000">
+        <picture>
+            <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
+            <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
+            <source media="(max-width:992px)" srcset="{layout:tablet_header_image}">
+            <img src="{layout:desktop_header_image}" alt="Flowers" class="w-100 h-100 object-fit-cover position-absolute">
+        </picture>
+        {!--<div class="container-fluid position-absolute h-100 top-0 p-0">
+            <img src="{site_url}assets/images/header_images/Image-mask-dt.png" alt="Flowers" class="w-100 h-100 object-fit-cover position-absolute">
+        </div>--}
+        <div class="container-fluid position-absolute image-mask h-100 top-0">
+            <div class="row h-100 align-items-center">
+                <div class="col-10 col-xl-9 mx-auto">
+                    <div class="row">
+                        <div class="col-md-10 col-xl-9 text-white justify-content-center text-center shadow-sm mx-auto">
+                            <h1 class="text-white">{layout:main_head}</h1>
+                            <div class="mx-auto">{par_drop_menu}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+           
+</header>
+<div class="w-100 py-2">
+</div>
+{layout:contents}

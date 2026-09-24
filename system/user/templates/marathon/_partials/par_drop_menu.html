@@ -1,16 +1,88 @@
- {if structure:child_ids != ''}
+{if segment_2 !=""}
+<div class="dropdown">
 
-<div class="dropdown mb-5 float-lg-end">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-Page Menu
-</button>
-  <ul class="dropdown-menu">
-    {exp:structure:nav_advanced start_from="/{segment_1}/{segment_2}" strict_start_from="yes"}
-      {if root:count == 1} {/if} 
-            <li><a class="dropdown-item" href="{root:page_url}">{root:title}</a></li>
-    {/exp:structure:nav_advanced}
-    
-  </ul>
+    <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        id="sectionDropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+
+        {if '{structure:child_ids}' != ''}
+            {structure:page:title}
+        {if:else}
+            {structure:parent:title}
+        {/if}
+
+    </button>
+
+    <ul class="dropdown-menu" aria-labelledby="sectionDropdown">
+
+        {if '{structure:child_ids}' != ''}
+
+            {!-- Current page is the parent: link to itself first --}
+
+            <li>
+                <a
+                    class="dropdown-item active"
+                    href="{structure:page:url}"
+                    aria-current="page">
+                    {structure:page:title}
+                </a>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            {!-- Then show its children --}
+
+            {exp:structure:entries
+                parent_id="{structure:page:entry_id}"
+            }
+
+                <li>
+                    <a class="dropdown-item" href="{page_url}">
+                        {title}
+                    </a>
+                </li>
+
+            {/exp:structure:entries}
+
+
+        {if:else}
+
+
+            {!-- Current page is a child: link to parent first --}
+
+            <li>
+                <a
+                    class="dropdown-item text-danger"
+                    href="{structure:parent:url}">
+                    {structure:parent:title}
+                </a>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            {!-- Then show all siblings --}
+
+            {exp:structure:entries
+                parent_id="{structure:parent:entry_id}"
+            }
+
+                <li>
+                    <a
+                        class="dropdown-item{if entry_id == '{structure:page:entry_id}'} active{/if}"
+                        href="{page_url}"
+                        {if entry_id == '{structure:page:entry_id}'}aria-current="page"{/if}>
+                        {title}
+                    </a>
+                </li>
+
+            {/exp:structure:entries}
+
+        {/if}
+
+    </ul>
+
 </div>
-
 {/if}
