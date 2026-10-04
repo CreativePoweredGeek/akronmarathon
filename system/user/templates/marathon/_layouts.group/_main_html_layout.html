@@ -5,9 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {embed="_embeds/_seo_meta" entry_id="{layout:entry_id}"}
+    <!-- For an RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" href="{site_url}news-media/feed/" title="RSS Feed">
    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="{site_url}assets/vendors/lightbox2-2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
  <link href="{site_url}assets/vendors/aos-2/dist/aos.css" rel="stylesheet" crossorigin="anonymous">
     <link href="{site_url}assets/css/styles.min.css?v-{current_time}" rel="stylesheet" crossorigin="anonymous">
 
@@ -23,7 +26,15 @@
         <link href="{site_url}assets/vendors/aos-2/dist/aos.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <script src="{site_url}assets/vendors/aos-2/dist/aos.js"></script>
+    <script src="{site_url}assets/vendors/lightbox2-2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
     <script src="{site_url}assets/js/main.js"></script>
-
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'maxHeight' : 600,
+      'disableScrolling' : true
+    })
+</script>
   </body>
   </html>

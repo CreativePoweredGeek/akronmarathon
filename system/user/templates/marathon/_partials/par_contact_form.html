@@ -1,0 +1,49 @@
+{if segment_2 == "thank-you"}
+<div class="alert alert-success text-center" role="alert">Thank you. Your message has been received.  I'll get back with you as soon as I can.</div>
+{/if}
+{exp:email:contact_form user_recipients="no" redirect="return" recipients="russ@kerncreativedesign.com" charset="utf-8" return="contact/thank-you"}
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="message[]" id="floatingInput" placeholder="Full Name">
+    <label for="floatingInput">Full Name</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" name="from" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Email address</label>
+  </div>
+
+
+  <div class="form-floating mb-3">
+    <input type="tel" class="form-control" name="message[]" id="floatingInput" placeholder="Phone Number">
+    <label for="floatingInput">Phone</label>
+  </div>
+  
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="subject" id="floatingInput" placeholder="Subject">
+    <label for="floatingInput">Subject</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <textarea class="form-control" placeholder="Leave a message here" name="message[]" rows="8" id="floatingTextarea" style="min-height:200px;"></textarea>
+    <label for="floatingInput">Message</label>
+  </div>
+
+
+  <input type="hidden" name="message[]" value="">
+  <input type="hidden" name="message[]" value="-------------------------------">
+  <input type="hidden" name="message[]" value="A Message from the Akron Marathon Website.">
+  <input type="hidden" name="message[]" value="Originated from: {current_url}">
+  <input type="hidden" name="message[]" value="Date: {current_time format="%D, %F %d, %Y - %g:%i:%s"}">
+
+
+
+
+
+
+
+
+  {if captcha}{captcha}{/if}
+  <input name="submit" type='submit' class="btn btn-primary rounded-0" value='Submit Form' />
+
+{/exp:email:contact_form}

@@ -17,13 +17,17 @@
 {layout:set name="clock_time"}{event_info:start_stamp}{/layout:set}
 
 {layout:set name="register_link"}{registration_link}{/layout:set}
-
+{layout:set name="planning_link"}{planning_link}{/layout:set}
 {layout:set name="event_status"}{event_status}{item:value}{/event_status}{/layout:set}
 
     
 
 
 {if desktop_image !=""} 
+	{desktop_image}
+    	{layout:set name="alt_text"}{description}{/layout:set}
+		{layout:set name="img_title"}{title}{/layout:set}
+	{/desktop_image}
     {layout:set name="desktop_header_image"}{desktop_image:Desktop}{/layout:set}{!--xl, xxl--}
 {if:else} 
     {layout:set name="desktop_header_image"}{site_url}assets/images/default-dt.webp{/layout:set}{!--xl, xxl--}
@@ -39,6 +43,7 @@
 {if:else} 
    {layout:set name="smartphone_header_image"}{desktop_image:Smartphone}{/layout:set} {!---xs, sm--}
 {/if}
+
 {layout:set name="pagetitle"}{title}{/layout:set}
 {layout:set name="main_head"}{if main_head != ""}{main_head}{if:else}{title}{/if}{/layout:set}
 {layout:set name="pagecontents"}{par_page_builder}

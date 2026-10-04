@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Media Resources
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{site_url}news-media/resources/">Media Resources</a></li>
+    <li><hr class="dropdown-divider"></li>
+    {exp:channel:categories category_group="4" channel="media_assets" style="linear" show_empty="yes" relaxed_categories="yes"}
+        <li><a class="dropdown-item" href="{site_url}news-media/resources/{category_url_title}/">{category_name}</a></li>
+    {/exp:channel:categories}
+  </ul>
+</div>

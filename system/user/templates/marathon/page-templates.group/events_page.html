@@ -23,6 +23,8 @@
 {if:else} 
    {layout:set name="smartphone_header_image"}{desktop_image:Smartphone}{/layout:set} {!---xs, sm--}
 {/if}
+{layout:set name="alt_text"}{desktop_image}{description}{/desktop_image}{/layout:set}
+{layout:set name="img_title"}{desktop_image}{title}{/desktop_image}{/layout:set}
 {layout:set name="pagetitle"}{title}{/layout:set}
 {layout:set name="main_head"}{if main_head != ""}{main_head}{if:else}{title}{/if}{/layout:set}
 {layout:set name="pagecontents"}{par_page_builder}{/layout:set}

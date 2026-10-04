@@ -30,3 +30,26 @@
 {/exp:channel:entries}
 
 
+{if last_segment == 'charity-partners'} 
+{exp:channel:entries channel="charity_partners" dynamic="no" orderby="title" sort="asc"}
+<article class="container-xl py-5 my-5 border border-primary border-start-0 border-end-0 border-top-0">
+    <div class="row g-5">
+        <div class="col-6 col-lg-4 col-xl-3">
+            <img src="{partner_logo}" class="img-fluid mb-3" alt="{partner_logo}{description}{/partner_logo}" title="{partner_logo}{title}{/partner_logo}" data-aos="fade-in">
+        </div>
+        <div class="col-lg-8 col-xl-9">
+            <h2>{title}</h2>
+            {partner_bio}
+            <div class="mt-3">
+                <a href="{partner_donation_link}" target="_blank" class="btn btn-primary rounded-pill" aria-describedby="This link will take you to {title}">
+                    Donate Today
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+<div class="w-100"></div>
+{/exp:channel:entries}
+
+{/if}
+

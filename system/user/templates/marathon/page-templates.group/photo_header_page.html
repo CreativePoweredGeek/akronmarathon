@@ -8,6 +8,10 @@
   {/if}
 {layout:set name="entry_id"}{entry_id}{/layout:set}
 {if desktop_image !=""} 
+	{desktop_image}
+    	{layout:set name="alt_text"}{description}{/layout:set}
+		{layout:set name="img_title"}{title}{/layout:set}
+	{/desktop_image}
     {layout:set name="desktop_header_image"}{desktop_image:Desktop}{/layout:set}{!--xl, xxl--}
 {if:else} 
     {layout:set name="desktop_header_image"}{site_url}assets/images/default-dt.webp{/layout:set}{!--xl, xxl--}
@@ -23,6 +27,7 @@
 {if:else} 
    {layout:set name="smartphone_header_image"}{desktop_image:Smartphone}{/layout:set} {!---xs, sm--}
 {/if}
+
 {layout:set name="pagetitle"}{title}{/layout:set}
 {layout:set name="main_head"}{if main_head != ""}{main_head}{if:else}{title}{/if}{/layout:set}
 {layout:set name="main_subhead"}{main_subheadline}{/layout:set}
@@ -30,3 +35,60 @@
 {/exp:channel:entries}
 
 
+{if segment_1 == "get-involved"}
+<div class="row g-5">
+{exp:structure:entries
+                parent_id="{structure:page:entry_id}" 
+                dynamic="no"
+    limit="999"}
+
+
+    <div class="col-12 col-md-6 col-xl-4 mx-auto">
+        <div class="card card-body h-100 card-border-bottom p-5 rounded-5" data-aos="{switch='fade-left|fade-up|fade-right'}">
+        <h2 class="card-title">{title}</h2>
+        {page_builder:limit:strip_tags characters="300"} <a href="{site_url}{segment_1}/{url_title}/" class="display-inline">More</a>
+        <p><a href="{site_url}{segment_1}/{url_title}/" class="btn btn-primary rounded-pill mt-3">Read More</a></p>
+        </div>
+    </div>
+{/exp:structure:entries}
+</div>
+{/if}
+
+{if segment_1 == "training"}
+<div class="row g-5">
+{exp:structure:entries
+                parent_id="{structure:page:entry_id}" 
+                dynamic="no"
+    limit="999"}
+
+
+    <div class="col-12 col-md-6 col-xl-4 mx-auto">
+        <div class="card card-body h-100 card-border-bottom p-5 rounded-5" data-aos="{switch='fade-left|fade-up|fade-right'}">
+        <h2 class="card-title">{title}</h2>
+        {page_builder:limit:strip_tags characters="300"} <a href="{site_url}{segment_1}/{url_title}/" class="display-inline">More</a>
+        <p><a href="{site_url}{segment_1}/{url_title}/" class="btn btn-primary rounded-pill mt-3">Read More</a></p>
+        </div>
+    </div>
+{/exp:structure:entries}
+</div>
+{/if}
+
+{if segment_1 == "aboutus"}
+<section class="container-fluid section">
+<div class="row g-5">
+{exp:structure:entries
+                parent_id="{structure:page:entry_id}" 
+                dynamic="no"
+    limit="999"}
+
+
+    <div class="col-12 col-md-6 col-xl-4 mx-auto">
+        <div class="card card-body h-100 card-border-bottom p-5 rounded-5" data-aos="{switch='fade-left|fade-up|fade-right'}">
+        <h2 class="card-title">{title}</h2>
+        {page_builder:limit:strip_tags characters="300"} <a href="{site_url}{segment_1}/{url_title}/" class="display-inline">More</a>
+        <p><a href="{site_url}{segment_1}/{url_title}/" class="btn btn-primary rounded-pill mt-3">Read More</a></p>
+        </div>
+    </div>
+{/exp:structure:entries}
+</div></section>
+{/if}

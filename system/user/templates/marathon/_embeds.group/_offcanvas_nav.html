@@ -1,7 +1,26 @@
 <nav class="navbar navbar-expand-xl fixed-top translucent shadow">
   <div class="container-xxl max_page_width px-0">
     <a class="navbar-brand" href="{site_url}">
-  <img src="{site_url}assets/images/logo-banner.svg" width="300px" class="banner-logo position-absolute top-0 start-50 translate-middle-x">
+       {if segment_1 == 'donate'} 
+        <img src="{site_url}assets/images/AMoves25-Logo-banner.svg" width="300px" class="banner-logo position-absolute top-0 start-50 translate-middle-x">
+      {if:elseif segment_2 == 'akron-marathon'}  
+  <img src="{site_url}assets/images/FE-Logo-banner.svg" width="300px" 
+  alt="First Energey Akron marathon Logo" title="First Energy Akron Marathon" loading="eager" fetchpriority="high" class="banner-logo position-absolute top-0 start-50 translate-middle-x">
+
+      {if:elseif segment_2 == 'half-marathon-10k'} 
+  <img src="{site_url}assets/images/GY-logo-banner.svg" width="300px" 
+  alt="Goodyear Half Marathon 10K Logo" title="Goodyear Half Marathon 10K" loading="eager" fetchpriority="high" 
+  class="banner-logo position-absolute top-0 start-50 translate-middle-x">
+
+      {if:elseif segment_2 =='8k-1m'}
+  <img src="{site_url}assets/images/acme-logo-banner.svg" width="300px" 
+  alt="Acme Fresh Market Foundation 8K 1 Mile Logo" title="Acme Fresh Market Foundation 8K 1 Mile" loading="eager" fetchpriority="high" class="banner-logo position-absolute top-0 start-50 translate-middle-x">
+
+      {if:else} 
+  <img src="{site_url}assets/images/logo-banner.svg" width="300px" 
+  alt="Akron Marathon Race Series Logo" title="Akron Marathon Race Series" loading="eager" fetchpriority="high" class="banner-logo position-absolute top-0 start-50 translate-middle-x">
+
+      {/if}
   </a>
     <button class="navbar-toggler border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       
@@ -22,6 +41,14 @@
             {/if}
            {if root:count == 5}
             </ul><ul class="navbar-nav">
+              <li class="nav-item">
+              <a href="{site_url}search/" class="nav-link{if segment_1 == 'search'} active{/if}" {if
+                segment_1=='search' }aria-current="page" {/if}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+              </svg>
+              </a>
+            </li>
             {/if} 
            
 
@@ -46,6 +73,9 @@
                            {if segment_1 == '{root:url_title}'}aria-current="page"{/if}>Overview</a>
                       </li>
                       <li class="d-xl-none"><hr class="dropdown-divider"></li>
+                      {if root:url_title == 'aboutus'} 
+                      <li><a class="dropdown-item" href="{site_url}faqs/">FAQs</a></li>
+                      {/if}
                       {if root:url_title == 'race-series'} 
                       <li><a class="dropdown-item" href="{site_url}events/">Calendar of Events</a></li>
                       {/if}
@@ -67,12 +97,12 @@
 
 
             <li class="nav-item">
-              <a href="{root:page_url}" class="nav-link{if segment_1 == '{root:url_title}'} active{/if}" {if
+              <a href="{root:page_url}" class="nav-link{if segment_1 == 'akron-moves'} heavy{/if}{if segment_1 == '{root:url_title}'} active{/if}" {if
                 segment_1=='{root:url_title}' }aria-current="page" {/if}>{root:title}</a>
             </li>
             {/if}
            {/exp:structure:nav_advanced}
-           <li class="nav-item"><a href="https://akronMoves.akronmarathon.org/" class="btn btn-primary btn-cta me-xl-3 ms-xl-3" target="_blank">Donate</a></li>
+           <li class="nav-item"><a href="{site_url}donate/" class="btn btn-primary btn-cta me-xl-3 ms-xl-3">Donate</a></li>
         </ul>
 
       </div>

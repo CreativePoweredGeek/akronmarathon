@@ -1,6 +1,29 @@
 {layout="_layouts/_header_layout"}
 <div class="p-5 pt-0">
 {layout:pagecontents}
-{layout:contents}    
+<div class="container-xxl"> 
+<div class="row g-5"> 
+<div class="col-md-4">
+
+<div class="ratio ratio-4x3 mb-3">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.230652307577!2d-81.52362382332474!3d41.06395061599399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8830d61c01b0c957%3A0x3b3b41055efea02b!2s155%20E%20Voris%20St%2C%20Akron%2C%20OH%2044311!5e0!3m2!1sen!2sus!4v1790529301962!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
+<address class="fs-5">
+                    <strong>Akron Marathon Charitable Corporation</strong><br>
+                    {layout:address}<br>
+                    Phone: {layout:contact_phone}<br>
+                    Email: {layout:contact_email}
+                </address>
+               <ul class="nav">
+                {layout:social}
+                
+            </ul>
+</div>
+<div class="col-md-8 bg-light p-5 rounded-5">
+{par_contact_form}
+</div>
+</div>
+</div>
+
+</div>

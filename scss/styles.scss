@@ -78,6 +78,10 @@ header.header {
 img.btm-border {
   border-bottom: solid 12px $primary;
 }
+div.btm-border {
+  border-bottom: solid 12px $primary;
+  border-radius: 12px;
+}
 
 .homepage_header {
   min-height:700px;
@@ -130,7 +134,9 @@ header.event-header {
     }
 
   }
-
+.card-border-bottom {
+  border-bottom: solid 12px $primary;
+}
 .translucent {
   min-height: 80px;
 
@@ -404,4 +410,42 @@ footer.footer {
     .file-tile-icon {
         transition: none;
     }
+}
+em {
+  background-color: yellow;
+}
+
+.lightbox .lb-container {
+  padding: 60px;
+  border-radius: 60px;
+}
+.lightbox .lb-outerContainer {
+  border-radius: 60px;
+}
+.lightbox .lb-data .lb-caption {
+  font-size: 21px;
+  line-height: 1.4;
+  color:white;
+}
+:root {
+  --lb-overlay-bg: black;
+  --lb-overlay-opacity: 0.6 !important;
+  --lb-container-bg: white;
+  --lb-image-border-width: 4px;
+  --lb-image-border-color: white;
+  --lb-border-radius: 24px;
+  --lb-text-color: #ccc;
+  --lb-caption-link-color: #4ae;
+  --lb-number-color: #999;
+  --lb-nav-transition-speed: 0.6s;
+  --lb-close-transition-speed: 0.2s;
+}
+
+#ambassadors {
+  .row {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 1px $primary;
+
+  }
 }

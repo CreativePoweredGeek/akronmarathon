@@ -2,7 +2,7 @@
 {exp:channel:entries channel="global_content" dynamic="no"  disable="categories|member_data|pagination|relationships" cache="yes" refresh="60" cache_prefix="global"} 
 {par_global_content}
 {/exp:channel:entries}
-{exp:channel:entries channel="site_pages" limit="1" disable="categories|member_data|pagination|relationships" cache="no" refresh="60"} 
+{exp:channel:entries channel="site_pages" url_title="search-results" limit="1" disable="categories|member_data|pagination|relationships" cache="no" refresh="60"} 
 {if no_results} 
     {redirect="404"}
   {/if}
@@ -31,12 +31,29 @@
     {/if}
 {/layout:set}
 {/exp:channel:entries}
+<div class="row">
+  <div class="col-lg-10 col-xl-8 mx-auto">
 
+
+<div class="mb-5">
+{exp:pro_search:form required="keywords" result_page="{site_url}search/search-results/"}
+            <fieldset>
+              <div class="input-group input-group-lg rounded-0 border-primary border-2">
+                <input type="search" name="keywords" placeholder="" class="rounded-start-pill form-control fs-3 border-primary"
+                  required>
+                <button type="submit" class="btn btn-primary fs-3 rounded-end-pill border-2">Go</button>
+              </div>
+              {if pro_search_keywords_missing}<em>Keywords are required</em>{/if}
+            </fieldset>
+{/exp:pro_search:form}
+</div>
 {exp:pro_search:results
+	collection="site_pages|race_events|news" 
   query="{segment_3}"
   keywords:lang="en"
   keywords:inflect="yes"
-  limit="10"
+  limit="10" 
+  require_query="yes"
 }
   {if count == 1}
     <p>
@@ -45,14 +62,12 @@
     </p>
   {/if}
 
+  <div class="article card p-5 mb-5">
   <h3>{title}</h3>
-  <p>Found in {pro_search_collection_label}, with a score of     {pro_search_score}</p>
   <p>{pro_search_excerpt}</p>
-  <p><a href="{auto_path}">{auto_path}</a></p>
-
-  {paginate}
-    {current_page}/{total_pages} | {pagination_links}
-  {/paginate}
+  <p><a href="{structure:page_url_for:{entry_id}}" class="btn btn-outline-primary rounded-pill">More on {title}</a></p>
+ </div>
+  {par_paginate}
 
   {if pro_search_no_results}
     <p>
@@ -65,3 +80,5 @@
     </p>
   {/if}
 {/exp:pro_search:results}
+</div>
+</div>

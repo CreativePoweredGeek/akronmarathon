@@ -1,0 +1,26 @@
+{layout="_layouts/_page_wrapper"} 
+<header class="header container-fluid position-relative mx-auto overflow-visible" data-aos="fade-down" data-aos-duration="1000">
+       {!--} <picture>
+            <source media="(max-width:576px)" srcset="{layout:smartphone_header_image}">
+            <source media="(max-width:768px)" srcset="{layout:tablet_header_image}">
+            <source media="(max-width:992px)" srcset="{layout:tablet_header_image}">
+            <img src="{layout:desktop_header_image}" alt="Flowers" class="w-100 h-100 object-fit-cover position-absolute">
+        </picture>{!--}
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-11 col-md-9 col-lg-8 mx-auto text-center">
+                        <h1 class="text-center text-white lh-1">{layout:main_head}
+                        {if '{layout:main_subhead}' != ''}<br><span class="subhead">{layout:main_subhead}</span>{/if}
+                        </h1>
+                        <div class="mx-auto mt-3 position-relative" style="z-index:9999;">{par_drop_menu}</div>
+                    </div>
+            </div>
+        </div>
+        
+</header>
+<div class="p-2 px-lg-5 pt-0">
+{layout:pagecontents}
+{layout:contents} 
+
+</div>
+

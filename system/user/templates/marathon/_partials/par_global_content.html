@@ -54,8 +54,7 @@
 {/footer_menu_2}
 {/layout:set}
 
-{layout:set name="porchlyt_bio"}{porchlyt_bio}{/layout:set}
-{layout:set name="contact_email"}{contact_email}{/layout:set}
+
 {mini_contact_form}
 {layout:set name="mini_contact_top"}{mini_contact_form:top_copy}{/layout:set}
 {layout:set name="mini_contact_bottom"}{mini_contact_form:disclaimer_copy}{/layout:set}
@@ -68,4 +67,10 @@
             <img src="{affiliations:file:resize:webp width='200px'}" class="img-fluid" alt="{affiliations:alt_text}" title="{affiliations:title}" loading="lazy">
         </div>
     {/affiliations}
+{/layout:set}
+
+
+{layout:set name="current_giving"}{current_giving:currency}{/layout:set}
+{layout:set name="percentage"}
+{exp:mx_calc expression="round({current_giving}/2500000*100)"}%
 {/layout:set}
