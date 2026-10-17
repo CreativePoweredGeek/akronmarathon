@@ -10,7 +10,7 @@
 
 @import "_components/_media-queries";
 @import "_components/_countdown";
-$enable-negative-margins: true;
+//$enable-negative-margins: true;
 
 html, body {
     font-family: $body-font;
@@ -30,12 +30,15 @@ h1.blog-head {
     font-size: 21px;
   }
 }
-h1.home {
+h1.home, .header, .event-header {
   text-shadow: 0px 0px 6px black;
 }
 .headline-font {
   font-family: $headline-font;
   font-weight: 700; 
+}
+#people h3 {
+  font-size:21px;
 }
 .subhead {
     font-size: 18px;
@@ -170,7 +173,7 @@ header.event-header {
 }
 section.section {
 
-  padding:60px;
+  padding:60px 48px;
   border-radius: 60px;
    @include respond-below(md) {
     
@@ -303,7 +306,8 @@ a.dropdown-item {
 
 .btn.btn-cta {
   background-color: $cta_orange; 
-  border-width:0px;
+  border-width:2px;
+  border-color: white;
   font-weight: 700;
  
   color:white;
@@ -448,4 +452,18 @@ em {
     border-bottom: solid 1px $primary;
 
   }
+}
+
+  .statistics-group {
+    .main {
+      font-weight: 800;
+      font-size: 72px;
+      color: $primary;
+    }
+    .description {
+      font-weight: 600;
+    }
+  }
+  .photo-border {
+    border: 12px solid #00aeef;
 }

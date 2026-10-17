@@ -13,7 +13,7 @@
 {/page_builder:section_divider}
 
 {page_builder:text_only}
-        <div class="row g-5">
+        <div class="row g-5 mt-0">
             {content}
                 <div class="{if content:field_total_rows == 1}col-lg-11 col-xl-10 mx-auto{if:elseif content:field_total_rows == 2}col-md-6{if:else}col-lg-4{/if}" >
                    {content:text}
@@ -23,54 +23,46 @@
 {/page_builder:text_only}
 
 {page_builder:text_image}
-    <div class="row g-5">
     {content}   
-        
-           
+        <div class="row g-5 mt-0">   
             {if content:orientation == 'image_top'} 
-            <div class="col-12 col-lg-6">
-                <picture>
-                    <source media="(max-width:576px)" srcset="{content:image:resize width='576'}"> <!--XS-->
-                    <source media="(max-width:768px)" srcset="{content:image:resize:webp width='690'}"> <!--SM-->
-                    <source media="(max-width:992px)" srcset="{content:image:resize:webp width='990'}"> <!--M-->
-                    <source media="(max-width:1200px)" srcset="{content:image:resize:webp width='885'}"> <!--LG-->
-                    {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
-                    <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="img-fluid rounded-5 btm-border">
-                </picture>
-                <div class="mt-3">
+                <div class="col-12 {if content:count == 1}col-lg-8{if:else}col-lg-6{/if} mx-auto">
+                    <picture>
+                        <source media="(max-width:576px)" srcset="{content:image:resize width='576'}"> <!--XS-->
+                        <source media="(max-width:768px)" srcset="{content:image:resize:webp width='690'}"> <!--SM-->
+                        <source media="(max-width:992px)" srcset="{content:image:resize:webp width='990'}"> <!--M-->
+                        <source media="(max-width:1200px)" srcset="{content:image:resize:webp width='885'}"> <!--LG-->
+                        {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
+                        <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="img-fluid rounded-5 btm-border{if content:image_css !=''} {content:image_css}{/if}">
+                    </picture>
+                    <div class="mt-3">
+                        {content:text}
+                    </div>
+
+                </div>
+            {if:else}
+                <div class="col-12 col-md-5 col-xl-4 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
+                    <picture>
+                        <source media="(max-width:576px)" srcset="{content:image:resize width='576'}"> <!--XS-->
+                        <source media="(max-width:768px)" srcset="{content:image:resize:webp width='690'}"> <!--SM-->
+                        <source media="(max-width:992px)" srcset="{content:image:resize:webp width='990'}"> <!--M-->
+                        <source media="(max-width:1200px)" srcset="{content:image:resize:webp width='885'}"> <!--LG-->
+                        {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
+                        <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="img-fluid rounded-5 btm-border{if content:image_css !=''} {content:image_css}{/if}">
+                    </picture>
+                </div>
+                <div class="col-12 col-md-7 col-xl-8 {if content:orientation == 'image_right'}p-3 pe-lg-5{if:else}ps-3 ps-lg-5{/if}">
                     {content:text}
                 </div>
-
-            </div>
-
-
-           {if:else}
-
-
-            <div class="col-12 col-md-5 col-xl-4 h-100 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
-                
-                <picture>
-                    <source media="(max-width:576px)" srcset="{content:image:resize width='576'}"> <!--XS-->
-                    <source media="(max-width:768px)" srcset="{content:image:resize:webp width='690'}"> <!--SM-->
-                    <source media="(max-width:992px)" srcset="{content:image:resize:webp width='990'}"> <!--M-->
-                    <source media="(max-width:1200px)" srcset="{content:image:resize:webp width='885'}"> <!--LG-->
-                    {!--<source media="(max-width:1400px)" srcset="{content:image:resize:webp width='590'}"> <!--XL-->--}
-                    <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="img-fluid rounded-5 btm-border">
-                </picture>
-                
-            </div>
-            <div class="col-12 col-md-7 col-xl-8 {if content:orientation == 'image_right'}p-3 pe-lg-5{if:else}ps-3 ps-lg-5{/if}">
-                {content:text}
-            </div>
-        {/if}
-        
-    {/content}</div>
+            {/if}
+        </div>
+    {/content}
 {/page_builder:text_image}
 
 
 {page_builder:text_logo}
     {content}   
-        <div class="row g-5">
+        <div class="row g-5 mt-0">
            
             <div class="col-12 col-md-5 col-xl-4 h-100 px-3 position-relative {if content:orientation == 'image_right'}order-lg-last{/if}">
                 
@@ -103,16 +95,23 @@
         {/content}
         </div>
 {/page_builder:embed_code}
+
+
 {page_builder:statistics}   
-        <div class="row align-items-end">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 justify-content-center pt-3 mt-0">
         {content}
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-3 mx-auto">
-                <div class="card border-0 h-100">
-                    <div class="card-body text-center p-2">
-                        <div class="lh-sm">{content:title}</div> <div class="fs-1 mt-2 countUp" data-target='{content:statistic_value}'>0</div>
-                    </div>
+        <div class="col position-relative">
+
+            <div class="card card-body text-center border-0 bg-transparent statistics-group">
+                {if content:image !=""}<img src="{content:image}" alt="" title="" class="mx-auto" width="100px">{/if}
+                <div class="main mb-3 headline-font">
+                    {content:statistic_value}
+                </div>
+                <div class="description lh-1 headline-font text-uppercase">
+                    {content:description}
                 </div>
             </div>
+        </div>
         {/content}
         </div>
 {/page_builder:statistics}
@@ -122,8 +121,9 @@
         {content}
             {content:testimonial}
                 <div class="col-12 col-lg-6 p-5 mx-auto">
-                    <div class='fs-3 mb-3 quote'>"{content:testimonial:quote}"</div>
-                        <span class="small">{content:testimonial:credit}</span>
+                    <div class="fs-3 mb-3 quote">
+                        {content:testimonial:quote}
+                        <div class="small" style="font-size:14px;">{content:testimonial:credit}</div>
                     </div>
                 </div>
             {/content:testimonial}
@@ -173,7 +173,7 @@
 {/page_builder:truth_bomb}
 
 {page_builder:people_bios} 
-<div class="row g-5">
+<div class="row g-5 mt-0">
     {content}
       
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -183,7 +183,7 @@
                 </picture>  
                 {frontedit_link entry_id="{content:entry_id}" field_name="photo"}              
             
-                <h3>{content:title}</h3>
+                <h3 style="font-size:21px;">{content:title}</h3>
                  <div class="fs-5 lh-1 mb-3 mt-0">{content:position}</div>
                 {!--{content:lots_bio:limit characters="200"}
                 <p class="mt-3"><a href="{site_url}about/{content:url_title}/" class="btn btn-primary">{content:title}</a></p>--}
@@ -246,7 +246,7 @@
   {/page_builder:prebuilt_items}
 
 {page_builder:card_element}
-    <div class="row row-cols-2 row-cols-lg-4 g-5 justify-content-center">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5 justify-content-center mt-0">
         {content}
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent ">
@@ -520,7 +520,7 @@
         {content}
          <div class="col-12 text-center mt-5 mb-5 ">
            {if content:cta_copy != ""}{content:cta_copy}{/if}
-            <a href="{if content:link != ''}{content:link}{if:else}{content:manual_link}{/if}" class="btn btn-dark btn-lg rounded-pill">{content:link_text}</a>
+            <a href="{if content:link != ''}{content:link}{if:else}{content:manual_link}{/if}" class="btn btn-dark btn-lg rounded-pill" target="_blank">{content:link_text}</a>
          </div>
         {/content}
     </div>
@@ -540,8 +540,80 @@
         {/content}
         </div>
     {/page_builder:image_gallery}
+ 
+ 
     
+{page_builder:impact_circles}
 
+        {content}
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6 col-xl-4">
+                     {content:copy}
+                </div>
+                <div class="col-8 col-md-6 col-xl-4 mx-auto">
+                    <div class="ratio ratio-1x1 position-relative">
+                        <img src="{content:image:resize:webp width='885'}" alt="{content:image}{description}{/content:image}" title="{content:image}{title}{/content:image}" loading="lazy" class="w-100 h-100 position-absolute object-fit-cover overflow-hidden rounded-circle photo-border">
+                    </div>
+                     
+                </div>
+                <div class="col-md-8 col-xl-4 mx-auto">
+                    <div id="carouselQuotes{page_builder:count}" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                        <div class="carousel-inner px-5">
+                            {content:quotes}
+                            <div class="carousel-item{if content:quotes:count == '1'} active{/if}">
+                                <div class="h-100 text-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#00aeef" class="bi bi-chat-quote" viewBox="0 0 16 16">
+                                    <path d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105"/>
+                                    <path d="M7.066 6.76A1.665 1.665 0 0 0 4 7.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 0 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 7.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 0 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z"/>
+                                    </svg>
+                                    <div class="fs-5 mt-3">{content:quotes:quote}</div>
+                                    <div class="mt-3">{content:quotes:credit}</div>
+                                </div>
+                            </div>
+                    {/content:quotes}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselQuotes{page_builder:count}" data-bs-slide="prev" style="z-index:9999">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#00aeef" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" aria-hidden="true">
+  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselQuotes{page_builder:count}" data-bs-slide="next" style="z-index:9999">
+   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#00aeef" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" aria-hidden="true">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</svg>
+    <span class="visually-hidden">Next</span>
+  </button>
+                    </div>
+                </div>
+            </div>
+        {/content}
+    {/page_builder:impact_circles}
+ 
+    {page_builder:sponsors_list}
+        <div class="row g-5 align-items-center justify-content-center mt-0">
+        {content}
+            {if content:total_results == 1} 
+                <div class="col-12 col-md-6 col-xl-5">
+            {if:elseif content:total_results == 2} 
+                <div class="col-12 col-md-5 col-xl-4">    
+            {if:elseif content:total_results == 3}
+                <div class="col-12 col-md-4 col-xl-3">
+            {if:elseif content:total_results == 4} 
+                <div class="col-12 col-md-4 col-xl-3">
+            {if:else} 
+                <div class="col-6 col-md-3 col-xl-2">
+            {/if}
+            {if content:website != ""}
+            <a href="{content:website}" target="_blank"><img src="{content:sponsor_logo}" class="img-fluid" alt="{content:title} Logo" title="{content:title} Logo"></a>
+            {if:else} 
+                    <img src="{content:sponsor_logo}" class="img-fluid" alt="{content:title} Logo" title="{content:title} Logo">
+            {/if}
+            </div>
+        {/content}
+        </div>
+    {/page_builder:sponsors_list}
+ 
 {if '{page_builder:last}' == '1'  && '{page_builder:last name="section_divider"}' == '0'}</div></section>{/if}
 
 {!--{if page_builder:last && !{page_builder:last name="section_divider"}}{/if}--}

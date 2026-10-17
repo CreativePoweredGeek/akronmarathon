@@ -1,0 +1,11 @@
+{exp:channel:categories channel="news" parent_only="yes" style="linear" show_empty="no"}
+   <url>
+   <loc>https://akronmarathon.org/news-media/category/{category_url_title}/</loc>
+  </url>
+{/exp:channel:categories}
+
+{exp:channel:entries channel="news" dynamic="no"} 
+   <url>
+    <loc>https://akronmarathon.org/news-media/{url_title}/</loc>
+   </url>
+{/exp:channel:entries}

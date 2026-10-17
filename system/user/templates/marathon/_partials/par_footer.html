@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-8 col-md-4 col-lg-4 col-xl-3 mx-auto text-center"> <!--LOGO & POSITIONING -->
             {if layout:footer_logo !=""}
-            <img src="{layout:footer_logo}" class="img-fluid mb-3" alt="Porchlyt - Lighting the way for people, places and progress"
+            <img src="{layout:footer_logo}" class="img-fluid mb-3" alt="Akron Marathon Race Series"
                 title="{layout:footer_logo_title}">
             {if:else}<div class="fs-3">{site_name}</div>{/if}
         </div>
@@ -26,7 +26,7 @@
     <div class="row">
 
         <div class="col-md-4 col-xl-3"><!--SOCIAL-->
-            
+            <h3>Contact & Location </h3>
                 <address class="fs-5">
                     <strong>{site_name}</strong><br>
                     {layout:address}<br>
@@ -41,7 +41,7 @@
         <div class="col-md-4 col-xl-6 text-center">
             <p class="">{layout:footer_menu_1}</p>
             <p>{layout:footer_menu_2}</p>
-            <p class="mt-5">{layout:copyright}</p>
+            <p class="mt-5">{layout:copyright} | <a href="{site_url}sitemap.xml">Sitemap</a></p>
         </div>
         <div class="col-md-4 col-xl-3">&nbsp;</div>
         <div class="w-100"></div><!--divider-->

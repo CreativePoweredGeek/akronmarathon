@@ -1,0 +1,55 @@
+{layout="_layouts/_basic_page_layout"}
+<div class="container"><div class="row justify-content-center g-5">
+
+{exp:channel:entries channel="loyalty_members" dynamic="no" search:loyalty_years="{layout:year_filter}" orderby="loyalty_last_name" sort="asc" disable="categories|member_data|relationships" cache="yes" refresh="60" limit="25"}
+{if count == 1}<div class="col-12 fs-4">{absolute_results} Members</div>{/if}
+
+{if loyalty_years > 10}
+	 
+		<div class="col-md-6 col-xl-4">
+  			<div class="card">
+  <div class="row g-0">
+  <div class="col-md-4 position-relative">
+  {if loyalty_photo !=""}
+		<img src="{loyalty_photo}" class="rounded-start position-absolute h-100 w-100 object-fit-cover" alt="{loyalty_first_name} {loyalty_last_name}">
+	{if:else}
+	<img src="{site_url}assets/images/default-262.jpg" class="rounded-start position-absolute h-100 w-100 object-fit-cover" alt="{loyalty_first_name} {loyalty_last_name}">
+	{/if}
+   </div>
+	
+	
+	
+	
+    <div class="col-md-8">
+	  <div class="card-body">
+		  <h4 class="card-title">{loyalty_first_name} {loyalty_last_name}<br>
+			  <div style="font-size:14px;">{loyalty_years} Years</div></h4>
+		  <p class="card-text">
+			  {if loyalty_hometown !=""}<strong>Hometown:</strong> {loyalty_hometown}<br>{/if}
+			  {if loyalty_bib_number !=""}<strong>Bib Number:</strong> {loyalty_bib_number}<br>{/if}
+			  {if loyalty_notes != ''}{loyalty_notes}{/if}
+		  </p>
+	  </div>
+	 </div>
+	 </div>
+  </div>
+</div>
+
+{if:else} 
+<div class="col-md-4 col-xl-3">
+  <div class="card">
+	  <div class="card-body">
+		  <h4 class="card-title">{loyalty_first_name} {loyalty_last_name}<br>
+			  <div  style="font-size:14px;">{loyalty_years} Years</div></h4>
+		  <p class="card-text">
+			  {if loyalty_hometown !=""}<strong>Hometown:</strong> {loyalty_hometown}<br>{/if}
+			  {if loyalty_bib_number !=""}<strong>Bib Number:</strong> {loyalty_bib_number}<br>{/if}
+			  {if loyalty_notes != ''}{loyalty_notes}{/if}
+		  </p>
+	  </div>
+  </div>
+</div>
+{/if}
+{par_paginate}
+{/exp:channel:entries}
+</div></div>

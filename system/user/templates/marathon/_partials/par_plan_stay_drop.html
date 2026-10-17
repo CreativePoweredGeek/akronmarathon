@@ -1,0 +1,34 @@
+<div class="dropdown">
+<button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        id="sectionDropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Explore Akron
+    </button>
+
+    <ul class="dropdown-menu" aria-labelledby="sectionDropdown">
+         {exp:channel:categories category_group="6" channel="attractions" show_empty="yes" style="linear" relaxed_categories="yes"} 
+   
+        <li>
+                <a
+                    class="dropdown-item {if last_segment == '{category_url_title}'}active{/if}"
+                    href="{site_url}plan-your-stay/category/{category_url_title}/"
+                    aria-current="page">
+                    {category_name}
+                </a>
+            </li>  
+
+
+   {/exp:channel:categories}
+
+
+
+
+
+
+       
+
+    </ul>
+</div>
