@@ -1,0 +1,16 @@
+{
+    "name": "Detour Pro",
+    "shortname": "detour_pro",
+    "version": "4.1.2",
+    "foundation_version": "4.11.0",
+    "description": "Manage redirects right inside ExpressionEngine!",
+    "license": "EEHarbor",
+    "namespace": "EEHarbor\\DetourPro",
+    "require": {
+        "php": ">=5.6.*",
+        "expressionengine/core": ">=6.0"
+    },
+    "resources": {
+        "themes": true
+    }
+}
