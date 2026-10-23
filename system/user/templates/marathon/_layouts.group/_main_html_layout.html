@@ -7,26 +7,36 @@
     {embed="_embeds/_seo_meta" entry_id="{layout:entry_id}"}
     <!-- For an RSS Feed -->
   <link rel="alternate" type="application/rss+xml" href="{site_url}news-media/feed/" title="RSS Feed">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <meta name="facebook-domain-verification" content="39737vlg8155w3rs7ymd4vonoqobzz">
    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link href="{site_url}assets/vendors/lightbox2-2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
- <link href="{site_url}assets/vendors/aos-2/dist/aos.css" rel="stylesheet" crossorigin="anonymous">
-    <link href="{site_url}assets/css/styles.min.css?v-{current_time}" rel="stylesheet" crossorigin="anonymous">
+<link href="{site_url}assets/vendors/lightbox2-2.11.4/dist/css/lightbox.min.css?v-1" rel="stylesheet" />
+ <link href="{site_url}assets/vendors/aos-2/dist/aos.css?v-1" rel="stylesheet" crossorigin="anonymous">
+ {if segment_2 =='loyalty-program'}
+ <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+ {/if}
+    <link href="{site_url}assets/css/styles.min.css?v-2" rel="stylesheet" crossorigin="anonymous">
 
   </head>
   <body class="">
+  {par_google_body}
     {embed="_embeds/_offcanvas_nav"}
     {layout:social-side}
     {layout:contents}
 
 
 
+
     {embed="_embeds/_consents"}
-        <link href="{site_url}assets/vendors/aos-2/dist/aos.css" rel="stylesheet" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    <script src="{site_url}assets/vendors/aos-2/dist/aos.js"></script>
-    <script src="{site_url}assets/vendors/lightbox2-2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="{site_url}assets/vendors/bootstrap.bundle.min.js?v=1.0"></script>
+    <script src="{site_url}assets/vendors/aos-2/dist/aos.js?v=1.0"></script>
+    <script src="{site_url}assets/vendors/lightbox2-2.11.4/dist/js/lightbox-plus-jquery.min.js?v=1.0"></script>
+    {if segment_2 =='loyalty-program'} <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>{/if}
     <script src="{site_url}assets/js/main.js"></script>
 <script>
     lightbox.option({
@@ -36,5 +46,21 @@
       'disableScrolling' : true
     })
 </script>
+ {if segment_2 =='loyalty-program'}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const dataTable = new simpleDatatables.DataTable("#myTable", {
+        searchable: true,
+        sortable: true,
+        perPage: 25,
+        perPageSelect: [10, 25, 50, 100],
+        labels: {
+            placeholder: "Search by first or last name..."
+        }
+    });
+});
+
+</script>
+{/if}
   </body>
   </html>

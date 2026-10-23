@@ -14,7 +14,9 @@
                 <div class="col-10 col-xl-9 mx-auto">
                     <div class="row">
                         <div class="col-md-10 col-xl-9 text-white justify-content-center text-center shadow-sm mx-auto">
-                            <h1 class="text-white">{layout:main_head}</h1>
+                            <h1 class="text-center text-white lh-1">{layout:main_head}
+                        {if '{layout:main_subhead}' != ''}<br><span class="subhead">{layout:main_subhead}</span>{/if}
+                        </h1>
                             <div class="mx-auto">{par_drop_menu}</div>
                         </div>
                     </div>

@@ -36,13 +36,13 @@ cache="no" refresh="60"}
 {layout:set name="pagecontents"}{par_page_builder}{/layout:set}
 {/exp:channel:entries}
 
-{exp:channel:entries channel="attractions" category="{segment_3_category_id}"}
+{exp:channel:entries channel="attractions" category="{segment_3_category_id}" orderby="title" sort="asc"}
 <div class="container-xxl py-5 {switch='bg-white py-5|bg-light p-5 rounded-5'}">
     <div class="row g-5">
-        <div class="col-md-3 col-xl-4" data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
+        <div class="col-md-3 col-xl-4" data-aos="flip-up" data-aos-offset="100" data-aos-easing="ease-in-sine">
             <img src="{attraction_photo}" class="img-fluid rounded-4" alt="{attraction_photo}{description}{/attraction_photo}" title="Photo of {title}">
         </div>
-        <div class="col-md-9 col-xl-8" data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
+        <div class="col-md-9 col-xl-8" data-aos="flip-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <h2>{title}</h2>
                 {attraction_copy}
                 <div class="">

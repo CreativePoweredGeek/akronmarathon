@@ -1,4 +1,27 @@
 {layout="_layouts/_basic_page_layout"}
+{if (segment_3 == '5-year-club-member-listing') || (segment_3 == "10-year-club-member-listing")} 
+
+<div class="container"><div class="row">
+<div class="col-md-10 col-xl-8 mx-auto">
+<table class="table table-striped table-hover" id="myTable">
+<thead> 
+<tr><th>First Name</th><th>Last Name</th></tr>
+</thead>
+<tbody> 
+{exp:channel:entries channel="loyalty_members" dynamic="no" search:loyalty_years="{layout:year_filter}" orderby="loyalty_last_name" sort="asc" disable="categories|member_data|relationships" cache="yes" refresh="60" limit="999"} 
+
+<tr><td>{loyalty_first_name}</td><td>{loyalty_last_name}</td></tr>
+
+
+
+{/exp:channel:entries}
+</tbody>
+</table>
+
+
+</div>
+</div></div>
+{if:else}
 <div class="container"><div class="row justify-content-center g-5">
 
 {exp:channel:entries channel="loyalty_members" dynamic="no" search:loyalty_years="{layout:year_filter}" orderby="loyalty_last_name" sort="asc" disable="categories|member_data|relationships" cache="yes" refresh="60" limit="25"}
@@ -22,8 +45,7 @@
 	
     <div class="col-md-8">
 	  <div class="card-body">
-		  <h4 class="card-title">{loyalty_first_name} {loyalty_last_name}<br>
-			  <div style="font-size:14px;">{loyalty_years} Years</div></h4>
+		  <h4 class="card-title">{loyalty_first_name} {loyalty_last_name}</h4>
 		  <p class="card-text">
 			  {if loyalty_hometown !=""}<strong>Hometown:</strong> {loyalty_hometown}<br>{/if}
 			  {if loyalty_bib_number !=""}<strong>Bib Number:</strong> {loyalty_bib_number}<br>{/if}
@@ -53,3 +75,5 @@
 {par_paginate}
 {/exp:channel:entries}
 </div></div>
+
+{/if}

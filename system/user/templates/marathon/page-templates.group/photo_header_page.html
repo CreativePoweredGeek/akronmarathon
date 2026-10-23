@@ -2,7 +2,7 @@
 {exp:channel:entries channel="global_content" dynamic="no"  disable="categories|member_data|pagination|relationships" cache="yes" refresh="60" cache_prefix="global"} 
 {par_global_content}
 {/exp:channel:entries}
-{exp:channel:entries channel="site_pages" limit="1" disable="categories|member_data|pagination|relationships" cache="no" refresh="60"} 
+{exp:channel:entries channel="site_pages" limit="1" require_entry="yes" require_entry="yes" disable="categories|member_data|pagination|relationships" cache="yes" refresh="60"} 
 {if no_results} 
     {redirect="404"}
   {/if}
@@ -46,7 +46,7 @@
     <div class="col-12 col-md-6 col-xl-4 mx-auto">
         <div class="card card-body h-100 card-border-bottom p-5 rounded-5" data-aos="{switch='fade-left|fade-up|fade-right'}">
         <h2 class="card-title">{title}</h2>
-        {summary_copy} <a href="{site_url}{segment_1}/{url_title}/" class="display-inline">More</a>
+        {summary_copy}
         <p><a href="{site_url}{segment_1}/{url_title}/" class="btn btn-primary rounded-pill mt-3">Read More</a></p>
         </div>
     </div>
@@ -65,7 +65,7 @@
     <div class="col-12 col-md-6 col-xl-4 mx-auto">
         <div class="card card-body h-100 card-border-bottom p-5 rounded-5" data-aos="{switch='fade-left|fade-up|fade-right'}">
         <h2 class="card-title">{title}</h2>
-        {summary_copy} <a href="{site_url}{segment_1}/{url_title}/" class="display-inline">More</a>
+        {summary_copy}
         <p><a href="{site_url}{segment_1}/{url_title}/" class="btn btn-primary rounded-pill mt-3">Read More</a></p>
         </div>
     </div>
@@ -85,7 +85,7 @@
     <div class="col-12 col-md-6 col-xl-4 mx-auto">
         <div class="card card-body h-100 card-border-bottom p-5 rounded-5" data-aos="{switch='fade-left|fade-up|fade-right'}">
         <h2 class="card-title">{title}</h2>
-        {summary_copy} <a href="{site_url}{segment_1}/{url_title}/" class="display-inline">More</a>
+        {summary_copy}
         <p><a href="{site_url}{segment_1}/{url_title}/" class="btn btn-primary rounded-pill mt-3">Read More</a></p>
         </div>
     </div>
