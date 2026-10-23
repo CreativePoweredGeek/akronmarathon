@@ -1,0 +1,451 @@
+/* Original URL check feedback */
+#original_url_check {
+    color: var(--ee-text-secondary);
+    font-size: 12px;
+}
+#original_url_check.check-success {
+    color: var(--ee-success);
+    font-weight: normal;
+}
+#original_url_check.check-error {
+    color: var(--ee-error);
+}
+
+/* Loading spinner */
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+}
+.loader {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 3px solid var(--ee-border-color);
+    border-right: 3px solid var(--ee-border-color);
+    border-bottom: 3px solid var(--ee-border-color);
+    border-left: 2px solid var(--ee-text-secondary);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Table URL columns - allow text wrapping */
+.tbl-ctrls table td:first-child,
+.tbl-ctrls table td:nth-child(2) {
+    word-break: break-all;
+    word-wrap: break-word;
+    max-width: 300px;
+}
+
+/* Note column - icon only */
+.tbl-ctrls table th:nth-child(3),
+.tbl-ctrls table td:nth-child(3) {
+    width: 56px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.detour-note-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fixed width for smaller columns (Method, Start Date, End Date) */
+.tbl-ctrls table th:nth-child(4),
+.tbl-ctrls table td:nth-child(4),
+.tbl-ctrls table th:nth-child(5),
+.tbl-ctrls table td:nth-child(5),
+.tbl-ctrls table th:nth-child(6),
+.tbl-ctrls table td:nth-child(6) {
+    width: 100px;
+    white-space: nowrap;
+}
+
+/* Hits column (if present) - also fixed width */
+.tbl-ctrls table th:nth-child(7),
+.tbl-ctrls table td:nth-child(7) {
+    width: 80px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Checkbox column (last column) - fixed narrow width */
+.tbl-ctrls table th:last-child,
+.tbl-ctrls table td:last-child {
+    width: 40px;
+    text-align: center;
+}
+
+/* Text wrap paragraphs - secondary text color */
+.txt-wrap > p {
+    color: var(--ee-text-secondary);
+}
+
+/* Search toolbar in title bar */
+.title-bar__extra-tools .filter-search-bar__input-wrap {
+    display: inline-block;
+}
+
+.title-bar__extra-tools .filter-search-bar__input-wrap input.filter-search-bar__input {
+    width: 200px;
+}
+
+.detour-table-search-wrap {
+    padding: 10px 12px;
+    margin: 8px 0 14px;
+}
+
+.detour-table-search-wrap .filter-search-bar__search-row {
+    display: block;
+}
+
+.detour-table-search-form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.detour-table-search-form .filter-search-bar__item-search {
+    margin: 0;
+    min-width: 0;
+    flex: 1 1 380px;
+    max-width: 520px;
+}
+
+.detour-table-search-form .filter-search-bar__item-search .field-control {
+    margin: 0;
+}
+
+.detour-table-search-form .filter-search-bar__item-search input.filter-search-bar__input {
+    width: 100%;
+}
+
+.detour-listing-header {
+    padding: 10px 18px;
+    border-top: 1px solid var(--ee-border);
+    border-bottom: 1px solid var(--ee-border);
+    background: var(--ee-main-bg);
+}
+
+.detour-listing-header .title-bar {
+    margin: 0;
+}
+
+.detour-listing-header .title-bar__title {
+    margin: 0;
+}
+
+@media only screen and (max-width: 1270px) {
+    .tbl-ctrls table td:first-child,
+    .tbl-ctrls table td:nth-child(2) {
+        min-width: 200px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .title-bar__extra-tools .button {
+        margin-left: 0;
+    }
+
+    .title-bar__extra-tools .filter-search-bar__input-wrap {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .title-bar__extra-tools .filter-search-bar__input-wrap input.filter-search-bar__input {
+        width: 100%;
+    }
+
+    .detour-table-search-wrap {
+        padding: 10px;
+    }
+
+    .detour-table-search-form {
+        display: block;
+    }
+
+    .detour-table-search-form .filter-search-bar__item-search {
+        max-width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .detour-listing-header {
+        padding: 10px 12px;
+    }
+}
+
+/* License Status Styles */
+.license_status {
+    margin: 15px 0;
+    padding: 10px;
+    line-height: 18px;
+    background: var(--ee-input-bg, #f5f5f5);
+    border: 1px solid var(--ee-input-border);
+}
+.license_status h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.license_status_badge {
+    margin-bottom: 10px;
+}
+.license_status_warning {
+    margin-top: 15px;
+    padding: 10px;
+    color: var(--ee-error);
+    text-align: center;
+    border: 1px solid var(--ee-error);
+    background: var(--ee-input-bg, #f5f5f5);
+}
+.license_status_disabled .license_status {
+    border: 2px solid var(--ee-error);
+    background: var(--ee-input-bg, #f5f5f5);
+}
+.license_status_disabled .license_status ol {
+    margin: 0 0 0 35px !important;
+}
+
+/* Dashboard chart styles */
+body[data-ee-version] .detour-charts-container {
+    padding: 8px 0 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body[data-ee-version] .detour-charts-container--inset {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+body[data-ee-version] .detour-dashboard-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+body[data-ee-version] .detour-dashboard-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid var(--ee-input-border);
+    background: linear-gradient(180deg, var(--ee-input-bg) 0%, var(--ee-panel-bg) 100%);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+body[data-ee-version] .detour-dashboard-toggle__btn {
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ee-text-secondary);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+body[data-ee-version] .detour-dashboard-toggle__btn:hover {
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--ee-text-primary);
+}
+
+body[data-ee-version] .detour-dashboard-toggle__btn.is-active {
+    background: var(--ee-button-primary-bg);
+    color: var(--ee-button-primary-color);
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.14), 0 6px 14px rgba(93, 99, 241, 0.28);
+}
+
+body[data-ee-version] .detour-chart-wrapper {
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body[data-ee-version] .detour-chart-wrapper-full {
+    width: 100%;
+}
+
+body[data-ee-version] .detour-chart-wrapper-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+body[data-ee-version] .detour-chart-wrapper-half {
+    flex: 1;
+    min-width: 320px;
+}
+
+body[data-ee-version] .detour-chart-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--ee-panel-bg);
+    border: 1px solid var(--ee-panel-border);
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+    overflow: hidden;
+}
+
+body[data-ee-version] .detour-chart-card__header {
+    padding: 11px 12px 10px;
+    border-bottom: 1px solid var(--ee-panel-border);
+    background: linear-gradient(180deg, var(--ee-input-bg) 0%, var(--ee-panel-bg) 100%);
+}
+
+body[data-ee-version] .detour-chart-card__title {
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    color: var(--ee-text-primary);
+    margin: 0;
+}
+
+body[data-theme=dark] .detour-dashboard-toggle {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+body[data-theme=dark] .detour-dashboard-toggle__btn {
+    color: #b9c0cd;
+}
+
+body[data-theme=dark] .detour-dashboard-toggle__btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f3f4f6;
+}
+
+body[data-theme=dark] .detour-dashboard-toggle__btn.is-active {
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.2), 0 8px 16px rgba(93, 99, 241, 0.35);
+}
+
+body[data-theme=dark] .detour-chart-card__header {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, #2c2c2c 0%, #252525 100%);
+}
+
+body[data-theme=dark] .detour-chart-card__title {
+    color: #e5e7eb;
+}
+
+body[data-ee-version] .detour-chart-card__canvas-wrap {
+    padding: 12px;
+    min-height: 250px;
+    position: relative;
+}
+
+body[data-ee-version] .detour-chart-card--detours-top .detour-chart-card__canvas-wrap {
+    min-height: 125px;
+}
+
+body[data-ee-version] .detour-chart-card__canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+body[data-ee-version] .detour-chart-card__table-wrap {
+    padding: 12px;
+}
+
+body[data-ee-version] .detour-chart-card--status .detour-chart-card__status-wrap {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    gap: 16px;
+}
+
+body[data-ee-version] .detour-chart-card__status-text {
+    margin: 0;
+    max-width: 420px;
+    color: var(--ee-text-secondary);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+body[data-ee-version] .detour-enable-reporting-form {
+    margin: 0;
+}
+
+body[data-ee-version] .detour-needed-table td:first-child {
+    word-break: break-word;
+}
+
+.detour-chart-card__canvas-wrap-main .no-results {
+    margin: 0;
+    background: none;
+}
+
+.add-on-layout .secondary-sidebar__detour_pro h2.sidebar__section-title {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 85%;
+    border-bottom: 1px solid var(--ee-border);
+    color: var(--ee-text-secondary);
+}
+
+.add-on-layout .secondary-sidebar__detour_pro h2..sidebar__section-title:first-child {
+    margin-top: 0;
+}
+
+@media (max-width: 900px) {
+    body[data-ee-version] .detour-charts-container--inset {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    body[data-ee-version] .detour-chart-wrapper-row {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    body[data-ee-version] .detour-chart-wrapper-half {
+        min-width: 100%;
+    }
+}
